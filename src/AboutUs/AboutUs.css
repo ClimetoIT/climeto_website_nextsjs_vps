@@ -1,0 +1,188 @@
+:root {
+  --accent: #08c230;
+  --text: #111;
+  --muted: #555;
+  --max-width: 1200px;
+  --card-bg: #fff;
+  --light-bg: #f9f9f9;
+}
+
+/* ====== GLOBAL ====== */
+.about-page {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--light-bg);
+  line-height: 1.6;
+}
+
+/* ====== HERO ====== */
+.about-hero {
+  background: linear-gradient(to right, #eaffea, #ffffff);
+  padding: 70px 20px;
+}
+.hero-inner {
+  max-width: var(--max-width);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.hero-text h1 {
+  font-size: 42px;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.lede {
+  color: var(--muted);
+  font-size: 18px;
+  max-width: 620px;
+}
+.hero-image img {
+  width: 420px;
+  max-width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ====== TEAM ====== */
+.team {
+  padding: 80px 20px;
+  text-align: center;
+  background: #fff;
+}
+.team h2 {
+  color: var(--accent);
+  margin-bottom: 50px;
+  font-size: 32px;
+  position: relative;
+}
+.team h2::after {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: var(--accent);
+  margin: 10px auto 0;
+  display: block;
+  border-radius: 2px;
+}
+
+/* Team grid: 4 + 3 pattern */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  justify-items: center;
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+.team-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 250px;
+  text-align: center;
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.team-card img {
+  width: 100%;
+  height: auto; /* 👈 FIXED cutting issue */
+  aspect-ratio: 4 / 5; /* consistent proportion */
+  object-fit: contain; /* ensures face/body not cropped */
+  border-radius: 10px;
+  background: #f4f4f4;
+}
+
+.team-card h3 {
+  font-size: 18px;
+  margin-top: 12px;
+  color: #222;
+}
+
+.team-card .role {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ====== OUR JOURNEY SLIDER ====== */
+.gallery {
+  padding: 80px 20px;
+  background: linear-gradient(to bottom right, #f8fff8, #ffffff);
+  text-align: center;
+}
+.gallery h2 {
+  color: var(--accent);
+  margin-bottom: 40px;
+  font-size: 32px;
+}
+
+.journey-slider {
+  max-width: var(--max-width);
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider-track {
+  display: flex;
+  gap: 20px;
+  animation: scrollSlider 25s linear infinite;
+}
+
+.slide {
+  flex: 0 0 auto;
+  width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.slide img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.slide img:hover {
+  transform: scale(1.05);
+}
+
+/* Slider animation */
+@keyframes scrollSlider {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 1024px) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  .slide img {
+    height: 180px;
+  }
+}
