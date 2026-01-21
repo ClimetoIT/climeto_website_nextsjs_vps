@@ -18,9 +18,9 @@ export default function Footer() {
         <div className="footer-links">
           <h3>Quick Links</h3>
           <ul>
-            <li><Link href="/contact">Contact Us</Link></li>
-            <li><Link href="/about">About Us</Link></li>
-            <li><Link href="/blog">Blog</Link></li>
+            <li><Link href="/contact-us">Contact Us</Link></li>
+            <li><Link href="/about-us">About Us</Link></li>
+            <li><Link href="/climeto-blog">Blog</Link></li>
           </ul>
         </div>
 
