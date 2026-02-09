@@ -126,23 +126,34 @@ export default function ClimetoCareers() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Upload resume to Cloudinary
-  const uploadToCloudinary = async (file) => {
-    const url = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/upload`;
-    const form = new FormData();
-    form.append("file", file);
-    form.append("upload_preset", UPLOAD_PRESET);
-    form.append("folder", "resumes"); // optional, for organization
-form.append("resource_type", "auto"); // ensures PDFs/docs are uploaded
-    try {
-      const res = await fetch(url, { method: "POST", body: form });
-      const data = await res.json();
-      return data.secure_url;
-    } catch (err) {
-      console.error("Cloudinary upload error:", err);
+
+const uploadToCloudinary = async (file) => {
+  const url = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/raw/upload`;
+
+  const form = new FormData();
+  form.append("file", file);
+  form.append("upload_preset", UPLOAD_PRESET);
+  form.append("folder", "resumes");
+
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      body: form
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      console.error("Cloudinary error:", data);
       return null;
     }
-  };
+
+    return data.secure_url;
+  } catch (err) {
+    console.error("Cloudinary upload error:", err);
+    return null;
+  }
+};
 
   const handleFileChange = async (e) => {
     const file = e.target.files[0];

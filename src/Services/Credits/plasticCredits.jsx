@@ -107,24 +107,7 @@ export default function SustainabilityServicesPage() {
   return (
     <div className="min-h-screen bg-slate-950">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-lg border-b border-emerald-500/20 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-emerald-400 to-green-400 rounded-lg flex items-center justify-center">
-              <Leaf className="w-6 h-6 text-slate-900" />
-            </div>
-            <span className="text-xl font-bold text-white">Sustainability Services</span>
-          </div>
-          <div className="hidden md:flex items-center gap-8 text-sm">
-            <a href="#pillars" className="text-gray-300 hover:text-emerald-400 transition-colors">Pillars</a>
-            <a href="#services" className="text-gray-300 hover:text-emerald-400 transition-colors">Services</a>
-            <a href="#approach" className="text-gray-300 hover:text-emerald-400 transition-colors">Approach</a>
-            <button className="bg-gradient-to-r from-emerald-500 to-green-500 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:shadow-emerald-500/50 transition-all">
-              Get Started
-            </button>
-          </div>
-        </div>
-      </nav>
+     
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-6 overflow-hidden">

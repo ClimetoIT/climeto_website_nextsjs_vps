@@ -17,24 +17,7 @@ export default function PlasticNetworkPage() {
   return (
     <div className="min-h-screen bg-slate-950">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-lg border-b border-blue-500/20 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-lg flex items-center justify-center">
-              <Recycle className="w-6 h-6 text-slate-900" />
-            </div>
-            <span className="text-xl font-bold text-white">Plastic Network</span>
-          </div>
-          <div className="hidden md:flex items-center gap-8 text-sm">
-            <a href="#services" className="text-gray-300 hover:text-blue-400 transition-colors">Services</a>
-            <a href="#footprinting" className="text-gray-300 hover:text-blue-400 transition-colors">Footprinting</a>
-            <a href="#neutrality" className="text-gray-300 hover:text-blue-400 transition-colors">Neutrality</a>
-            <button className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all">
-              Get Started
-            </button>
-          </div>
-        </div>
-      </nav>
+   
 
       {/* Hero Section with Background Image */}
       <section className="relative pt-32 pb-20 px-6 overflow-hidden">
