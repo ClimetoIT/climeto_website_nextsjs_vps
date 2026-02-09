@@ -30,14 +30,14 @@ export const citySEOData: CitySEOData = {
       description: "Simplified EPR compliance solutions for Pune-based businesses.",
       heading: "BEST EPR Compliance in Pune",
       content: " EPR compliance in Pune requires accurate reporting, timely Annual Return filings, and credits Fulfillment. We help organizations meet  guidelines through structured compliance planning and documentation support. Our services reduce compliance risk and regulatory delays.",
-      image: "/cities/pune.jpg",
+      image: "/cities/punenew.jpg",
     },
     Nagpur: {
       title: "EPR Compliance Services in Nagpur",
       description: "Reliable EPR compliance assistance aligned with CPCB norms.",
       heading: "CPCB-Aligned EPR Compliance in Nagpur",
       content: " Nagpur entities covered under EPR rules must ensure proper registration and annual compliance. We assist with Epr Compliance  EPR Registration, credit fulfillment, and  Annual return filings. Our compliance framework ensures transparency and regulatory confidence.",
-      image: "/cities/Nagpur.jpg",
+      image: "/cities/nagpurnew.webp",
     },
     Nashik: {
       title: "EPR Compliance Services in Nashik",
@@ -58,7 +58,7 @@ export const citySEOData: CitySEOData = {
       description: "Professional EPR compliance solutions for Thane.",
       heading: "Complete EPR Compliance Support in Thane",
       content: "Thane-based businesses must comply with evolving EPR obligations under CPCB regulations. We provide structured compliance support including registration, reporting, and credit reconciliation. Our process ensures timely and penalty-free compliance.",
-      image: "/cities/Thane.webp",
+      image: "/cities/thanenew.webp",
     },
   },
   Gujarat: {
@@ -67,7 +67,7 @@ export const citySEOData: CitySEOData = {
       description: "Expert-led EPR compliance and registration support.",
       heading: "EPR Registration & Compliance in Ahmedabad",
       content: "Ahmedabad organizations falling under EPR regulations must ensure accurate filings and credit management. We help streamline EPR registration, compliance tracking, and annual returns. Our solutions align fully with CPCB requirements.",
-      image: "/cities/Ahamdabad.png",
+      image: "/cities/ahmedabadnew.webp",
     },
     Surat: {
       title: "EPR Compliance Consultancy in Surat",
@@ -88,7 +88,7 @@ export const citySEOData: CitySEOData = {
       description: "Trusted EPR compliance solutions for Rajkot.",
       heading: "BEST EPR Compliance in Rajkot",
       content: "Rajkot organizations covered under EPR rules require structured compliance systems. We assist with registration, EPR credit fulfillment, and reporting. Our services ensure smooth regulatory alignment with CPCB norms.",
-      image: "/cities/Rajkot.png",
+      image: "/cities/rajkotnew.webp",
     },
     Vapi: {
       title: "EPR Compliance Consultancy in Vapi",
