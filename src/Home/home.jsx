@@ -133,7 +133,7 @@ const Home = () => {
       {/* Marquee Section */}
       <section className="marquee-section">
         <marquee direction="left" behavior="scroll" loop="infinite" scrollamount="6">
-          1000% Plastic Neutral Organization
+          100% Plastic Neutral Organization
         </marquee>
       </section>
 
