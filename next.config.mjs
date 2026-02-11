@@ -1,24 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'export',
   images: {
-    unoptimized: true,
+    unoptimized: true, // Required for static export
   },
-  async redirects() {
+  async rewrites() {
     return [
       {
-        source: '/EPR/:path*',
-        has: [
-          {
-            type: 'query',
-            key: 'html',
-            value: undefined,
-          },
-        ],
-        // Only redirect if it does NOT already end with .html
-        destination: '/EPR/:path*.html',
-        permanent: true,
-      },
+        source: '/EPR/:path*',          // Jo URL without .html hai
+        destination: '/EPR/:path*.html' // Redirect to the .html version
+      }
     ];
   },
 };
