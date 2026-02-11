@@ -5,12 +5,13 @@ const nextConfig = {
   images: {
     unoptimized: true, // Required for static export
   },
+
   async rewrites() {
     return [
       {
-        source: '/EPR/:path*',          // Jo URL without .html hai
-        destination: '/EPR/:path*.html' // Redirect to the .html version
-      }
+        source: '/EPR/:path*.html', // Jo bhi .html URL aayega
+        destination: '/EPR/:path*', // Actual page folder
+      },
     ];
   },
 };
