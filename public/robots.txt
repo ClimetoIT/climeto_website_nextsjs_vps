@@ -1,3 +1,9 @@
-# https://www.robotstxt.org/robotstxt.html
+# *
 User-agent: *
-Disallow:
+Allow: /
+
+# Host
+Host: https://climeto.com
+
+# Sitemaps
+Sitemap: https://climeto.com/sitemap.xml
