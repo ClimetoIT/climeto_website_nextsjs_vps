@@ -425,7 +425,7 @@ className="absolute top-1/2 right-5 transform -translate-y-1/2 bg-black/40 text-
             </p>
 
             <p className="mt-8 italic text-amber-700 text-xl">
-              — The Directors, Climeto Sustainability Pvt. Ltd.
+              — The Directors, Climeto Sustainable Services Pvt. Ltd.
             </p>
           </div>
 
