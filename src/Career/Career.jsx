@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Briefcase, MapPin, Clock, Send, X, CheckCircle, Sparkles, TrendingUp, Users } from "lucide-react";
+import { Briefcase, MapPin, Clock, Send, X, CheckCircle, Sparkles, TrendingUp, Users, Target, ClipboardCheck, GraduationCap } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
 // Cloudinary details
@@ -8,7 +8,7 @@ const UPLOAD_PRESET = "react_resume_upload"; // Unsigned upload preset
 
 // Job Card Component
 const JobCard = ({ job, onApply, index }) => {
-  const { title, location, type, department, description, requirements } = job;
+  const { title, location, type, department, description, requirements, responsibilities, eligibility, education } = job;
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -57,19 +57,81 @@ const JobCard = ({ job, onApply, index }) => {
       <p className="text-gray-600 mb-5 leading-relaxed">{description}</p>
 
       {isExpanded && (
-        <div className="mb-5 p-5 bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl border border-green-200 animate-fadeIn">
-          <h4 className="font-bold text-green-800 mb-3 flex items-center gap-2">
-            <CheckCircle className="w-5 h-5" />
-            Requirements
-          </h4>
-          <ul className="space-y-2">
-            {requirements.map((req, idx) => (
-              <li key={idx} className="flex items-start gap-3 text-gray-700 text-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2 flex-shrink-0" />
-                <span>{req}</span>
-              </li>
-            ))}
-          </ul>
+        <div className="space-y-6 animate-fadeIn mb-6">
+          {responsibilities && (
+            <div className="p-5 bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl border border-green-200">
+              <h4 className="font-bold text-green-800 mb-3 flex items-center gap-2">
+                <Target className="w-5 h-5 text-green-600" />
+                Key Responsibilities
+              </h4>
+              <div className="space-y-4">
+                {responsibilities.map((group, idx) => (
+                  <div key={idx}>
+                    <p className="font-semibold text-gray-800 text-sm mb-1">{group.category}</p>
+                    <ul className="space-y-1">
+                      {group.points.map((point, pIdx) => (
+                        <li key={pIdx} className="flex items-start gap-3 text-gray-700 text-sm">
+                          <span className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2 flex-shrink-0" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {eligibility && (
+            <div className="p-5 bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl border border-blue-200">
+              <h4 className="font-bold text-blue-800 mb-3 flex items-center gap-2">
+                <ClipboardCheck className="w-5 h-5 text-blue-600" />
+                Eligibility & Experience
+              </h4>
+              <ul className="space-y-2">
+                {eligibility.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-gray-700 text-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {education && (
+            <div className="p-5 bg-gradient-to-br from-green-50 to-white rounded-2xl border border-green-100">
+              <h4 className="font-bold text-green-800 mb-3 flex items-center gap-2">
+                <GraduationCap className="w-5 h-5 text-green-600" />
+                Education & Qualification
+              </h4>
+              <ul className="space-y-2">
+                {education.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-gray-700 text-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {!eligibility && requirements && (
+            <div className="p-5 bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl border border-green-200">
+              <h4 className="font-bold text-green-800 mb-3 flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green-600" />
+                Requirements
+              </h4>
+              <ul className="space-y-2">
+                {requirements.map((req, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-gray-700 text-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2 flex-shrink-0" />
+                    <span>{req}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       )}
 
@@ -108,7 +170,34 @@ export default function ClimetoCareers() {
   });
 
   const jobs = [
-   { title: "Business Development Executive", location: "Vapi, Gujarat", type: "Hybrid", department: "Business Development", description: "Drive business growth by identifying new clients, managing relationships, and supporting sales strategies.", requirements: ["Experience in sales or business development", "Strong communication & negotiation skills", "Ability to manage hybrid working schedule", "Goal-oriented and self-driven attitude"], }, { title: "Business Development Executive", location: "Bangalore", type: "Hybrid", department: "Business Development", description: "Identify opportunities, pitch services, and build strong business partnerships in the Bangalore region.", requirements: ["Previous BD or sales experience", "Good presentation & communication skills", "Hybrid working flexibility", "Understanding of sustainability sector (preferred)"], }, { title: "Business Development Manager", location: "Indore", type: "Onsite", department: "Business Development", description: "Lead the BD team, develop strategies, manage key accounts, and ensure overall business growth.", requirements: ["3+ years in BD or sales leadership", "Team management & strategic planning skills", "Strong relationship-building ability", "Onsite availability in Indore"], }, { title: "Environmental Research and Development Specialist", location: "Indore", type: "Onsite", department: "Research & Development", description: "Lead environmental research initiatives, develop innovative sustainability solutions, and drive R&D projects for climate impact.", requirements: ["Master's degree in Environmental Science or related field", "Research experience in sustainability or climate tech", "Strong analytical and problem-solving skills", "Experience with environmental impact assessment"], }, { title: "Internship Opportunities", location: "Indore", type: "Onsite", department: "All Departments", description: "Exciting internship opportunities across Sustainability, Sales, Management, and other departments. Perfect for students and recent graduates passionate about making a difference.", requirements: ["Currently pursuing or recently completed relevant degree", "Strong eagerness to learn and grow", "Good communication skills", "Passion for sustainability and environmental impact"], }, { title: "Full Stack Developer", location: "Indore", type: "Onsite", department: "Technology", description: "Build and maintain innovative web applications for our sustainability platform. Work with modern technologies to create impactful digital solutions.", requirements: ["3+ years experience with React, Node.js, and modern frameworks", "Strong knowledge of databases (SQL/NoSQL)", "Experience with cloud platforms (AWS/Azure)", "Understanding of RESTful APIs and microservices"], },
+    {
+      title: "Carbon Project Specialist",
+      location: "Indore ",
+      type: "Full-time",
+      department: "Carbon Project Development",
+      description: "Oversee the complete lifecycle of carbon offset initiatives across diverse sectors, ensuring technical precision and successful registry approval.",
+      responsibilities: [
+        { category: "Carbon Project Development", points: ["Lead the full-cycle development of carbon credits from conceptualization to issuance across multiple industries", "Methodology applicability assessment and feasibility analysis & more."] },
+        { category: "Additionality Assessment", points: ["Investment analysis (IRR and sensitivity analysis)", "Barrier analysis", "Common practice analysis", "Regulatory surplus and prior consideration assessment"] },
+        { category: "Carbon Accounting", points: ["Baseline emissions (BEy) calculation", "Project emissions (PEy) calculation", "Leakage emissions (LEy) identification", "Net emission reductions (ERy) calculation", "Application of emission factors (IPCC, grid emission factors)"] },
+        { category: "MRV (Monitoring, Reporting & Verification)", points: ["Monitoring plan design and parameter identification", "Sampling plan development and monitoring report preparation and more."] },
+        { category: "Technical Documentation", points: ["Preparation of PDDs, Monitoring Reports, Emission reduction sheets", "Additionality reports and leakage assessments", "Sampling plans and GIS/KML project boundaries", "Coordination with VVBs and more."] }
+      ],
+      eligibility: [
+        "Registry Experience (minimum three mandatory): Verra, Gold Standard, CDM, Article 6.4, Global Carbon Council, Isometric, Puro.earth, Cercarbono & others.",
+        "4–8 years in carbon project development",
+        "Successful submission of atleast 10+ carbon projects",
+        "Exposure to AFOLU and Non-AFOLU sectors",
+        "Other skills: Methodology applicability assessment, MRV framework development, GHG inventory preparation (IPCC 2006 & 2019 guidelines)",
+        "Software & Tools: QGIS / ArcGIS, remote sensing datasets, GIS mapping for AFOLU projects"
+      ],
+      education: [
+        "B.Tech / B.E. (Environmental / Energy / Mechanical / Chemical / Forestry)",
+        "Master’s in Climate Change / Environmental Management",
+        "PhD preferred",
+        "ISO 14064 certification preferred"
+      ]
+    }, { title: "Business Development Executive", location: "Bangalore", type: "Hybrid", department: "Business Development", description: "Identify opportunities, pitch services, and build strong business partnerships in the Bangalore region.", requirements: ["Previous BD or sales experience", "Good presentation & communication skills", "Hybrid working flexibility", "Understanding of sustainability sector (preferred)"], }, { title: "Business Development Manager", location: "Indore", type: "Onsite", department: "Business Development", description: "Lead the BD team, develop strategies, manage key accounts, and ensure overall business growth.", requirements: ["3+ years in BD or sales leadership", "Team management & strategic planning skills", "Strong relationship-building ability", "Onsite availability in Indore"], }, { title: "Environmental Research and Development Specialist", location: "Indore", type: "Onsite", department: "Research & Development", description: "Lead environmental research initiatives, develop innovative sustainability solutions, and drive R&D projects for climate impact.", requirements: ["Master's degree in Environmental Science or related field", "Research experience in sustainability or climate tech", "Strong analytical and problem-solving skills", "Experience with environmental impact assessment"], }, { title: "Internship Opportunities", location: "Indore", type: "Onsite", department: "All Departments", description: "Exciting internship opportunities across Sustainability, Sales, Management, and other departments. Perfect for students and recent graduates passionate about making a difference.", requirements: ["Currently pursuing or recently completed relevant degree", "Strong eagerness to learn and grow", "Good communication skills", "Passion for sustainability and environmental impact"], }, { title: "Full Stack Developer", location: "Indore", type: "Onsite", department: "Technology", description: "Build and maintain innovative web applications for our sustainability platform. Work with modern technologies to create impactful digital solutions.", requirements: ["3+ years experience with React, Node.js, and modern frameworks", "Strong knowledge of databases (SQL/NoSQL)", "Experience with cloud platforms (AWS/Azure)", "Understanding of RESTful APIs and microservices"], },
     // Add more jobs as needed
   ];
 
@@ -127,33 +216,33 @@ export default function ClimetoCareers() {
   };
 
 
-const uploadToCloudinary = async (file) => {
-  const url = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/raw/upload`;
+  const uploadToCloudinary = async (file) => {
+    const url = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/raw/upload`;
 
-  const form = new FormData();
-  form.append("file", file);
-  form.append("upload_preset", UPLOAD_PRESET);
-  form.append("folder", "resumes");
+    const form = new FormData();
+    form.append("file", file);
+    form.append("upload_preset", UPLOAD_PRESET);
+    form.append("folder", "resumes");
 
-  try {
-    const res = await fetch(url, {
-      method: "POST",
-      body: form
-    });
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        body: form
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (!res.ok) {
-      console.error("Cloudinary error:", data);
+      if (!res.ok) {
+        console.error("Cloudinary error:", data);
+        return null;
+      }
+
+      return data.secure_url;
+    } catch (err) {
+      console.error("Cloudinary upload error:", err);
       return null;
     }
-
-    return data.secure_url;
-  } catch (err) {
-    console.error("Cloudinary upload error:", err);
-    return null;
-  }
-};
+  };
 
   const handleFileChange = async (e) => {
     const file = e.target.files[0];

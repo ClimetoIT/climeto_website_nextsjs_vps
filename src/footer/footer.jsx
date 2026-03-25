@@ -34,6 +34,16 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* ── NEW: Legal Section ── */}
+          <div className="footer-links">
+            <h3>Legal</h3>
+            <ul>
+              <li><Link href="/terms-and-conditions">Terms &amp; Conditions</Link></li>
+              <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+              <li><Link href="/cancellation-and-refund-policy">Cancellation &amp; Refund Policy</Link></li>
+            </ul>
+          </div>
+
           <div className="footer-about">
             <h3>ABOUT</h3>
             <p>
@@ -61,7 +71,7 @@ export default function Footer() {
       </footer>
 
       {show && (
-        <button onClick={scrollToTop} style={{position:"fixed",bottom:"100px",right:"30px",width:"50px",height:"50px",background:"linear-gradient(135deg,#36a852,#10b981)",color:"white",border:"none",borderRadius:"50%",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",fontSize:"20px",boxShadow:"0 4px 12px rgba(16,185,129,0.4)",zIndex:1000}} aria-label="Scroll to top">
+        <button onClick={scrollToTop} style={{ position: "fixed", bottom: "100px", right: "30px", width: "50px", height: "50px", background: "linear-gradient(135deg,#36a852,#10b981)", color: "white", border: "none", borderRadius: "50%", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", boxShadow: "0 4px 12px rgba(16,185,129,0.4)", zIndex: 1000 }} aria-label="Scroll to top">
           <FaArrowUp />
         </button>
       )}

@@ -202,8 +202,8 @@ const BlogPage = () => {
 
   return (
     <div style={{ minHeight: '100vh', background: 'linear-gradient(to bottom, #f0fdf4, #ffffff)' }}>
-      {/* Spacer for fixed navbar */}
-      <div style={{ height: '94px' }} />
+
+
 
       {/* Hero Section */}
       <section style={{
