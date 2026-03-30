@@ -470,7 +470,7 @@ export default function TermsAndConditions() {
                         <p className="para">In accordance with applicable consumer protection and information technology regulations, Climeto has designated a Grievance Officer to address concerns raised by Users.</p>
                         <InfoTable rows={[
                             ["Designation", "Grievance Officer, Climeto Sustainable Services Private Limited"],
-                            ["Email", "support@Climeto.com"],
+                            ["Email", "support@climeto.com"],
                             ["Expected Response Time", "Within 2 Working days"],
                             ["Address", "Plot No 1A-2A, Second Floor, Scheme No 113, Vijay Nagar, Indore, MP - 452010"],
                         ]} />
@@ -562,7 +562,7 @@ export default function TermsAndConditions() {
                         <p className="para">For questions, concerns, or notices in connection with these Terms and Conditions, please contact:</p>
                         <InfoTable rows={[
                             ["Company", "Climeto Sustainable Services Private Limited"],
-                            ["Email", "support@Climeto.com"],
+                            ["Email", "support@climeto.com"],
                             ["Phone", "+91 9039946410"],
                         ]} />
                     </Block>

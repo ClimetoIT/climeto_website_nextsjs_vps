@@ -2,33 +2,33 @@
 import { useState } from "react";
 
 const sections = [
-    { id: "scope", title: "Scope of Policy", number: "1" },
-    { id: "subscription", title: "Subscription Services", number: "2" },
-    { id: "refund", title: "Refund Policy", number: "3" },
-    { id: "cancellation", title: "Cancellation of Subscription", number: "4" },
-    { id: "failed", title: "Failed Payments & Billing Errors", number: "5" },
-    { id: "upgrades", title: "Subscription Downgrades and Upgrades", number: "6" },
-    { id: "modification", title: "Modification of Plans and Services", number: "7" },
-    { id: "dispute", title: "Dispute Resolution", number: "8" },
-    { id: "updates", title: "Policy Updates", number: "9" },
-    { id: "contact", title: "Contact Information", number: "10" },
+  { id: "scope", title: "Scope of Policy", number: "1" },
+  { id: "subscription", title: "Subscription Services", number: "2" },
+  { id: "refund", title: "Refund Policy", number: "3" },
+  { id: "cancellation", title: "Cancellation of Subscription", number: "4" },
+  { id: "failed", title: "Failed Payments & Billing Errors", number: "5" },
+  { id: "upgrades", title: "Subscription Downgrades and Upgrades", number: "6" },
+  { id: "modification", title: "Modification of Plans and Services", number: "7" },
+  { id: "dispute", title: "Dispute Resolution", number: "8" },
+  { id: "updates", title: "Policy Updates", number: "9" },
+  { id: "contact", title: "Contact Information", number: "10" },
 ];
 
 export default function RefundPolicy() {
-    const [activeSection, setActiveSection] = useState(null);
+  const [activeSection, setActiveSection] = useState(null);
 
-    const scrollTo = (id) => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.scrollIntoView({ behavior: "smooth", block: "start" });
-            setActiveSection(id);
-        }
-    };
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      setActiveSection(id);
+    }
+  };
 
-    return (
-        <>
-            <style dangerouslySetInnerHTML={{
-                __html: `
+  return (
+    <>
+      <style dangerouslySetInnerHTML={{
+        __html: `
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
@@ -270,221 +270,221 @@ export default function RefundPolicy() {
 ` }} />
 
 
-            {/* HERO */}
-            <section className="hero">
-                <div className="hero-inner">
-                    <div className="hero-tag">
-                        <span>💳</span> Billing &amp; Payments
-                    </div>
-                    <h1>Refund and Cancellation Policy</h1>
-                    <p className="hero-sub">
-                        This Policy governs refunds, cancellations, and billing matters for all services
-                        offered by Climeto. Users are encouraged to read this Policy carefully before
-                        subscribing to any paid service.
-                    </p>
-                    <div className="hero-chips">
-                        {[["INR", "Billing Currency"], ["7 Days", "Refund Window"], ["Indore, MP", "Jurisdiction"]].map(([val, label]) => (
-                            <div key={label} className="hero-chip">
-                                <div className="hero-chip-val">{val}</div>
-                                <div className="hero-chip-label">{label}</div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+      {/* HERO */}
+      <section className="hero">
+        <div className="hero-inner">
+          <div className="hero-tag">
+            <span>💳</span> Billing &amp; Payments
+          </div>
+          <h1>Refund and Cancellation Policy</h1>
+          <p className="hero-sub">
+            This Policy governs refunds, cancellations, and billing matters for all services
+            offered by Climeto. Users are encouraged to read this Policy carefully before
+            subscribing to any paid service.
+          </p>
+          <div className="hero-chips">
+            {[["INR", "Billing Currency"], ["7 Days", "Refund Window"], ["Indore, MP", "Jurisdiction"]].map(([val, label]) => (
+              <div key={label} className="hero-chip">
+                <div className="hero-chip-val">{val}</div>
+                <div className="hero-chip-label">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            {/* LAYOUT */}
-            <div className="layout">
-                {/* SIDEBAR */}
-                <aside className="sidebar">
-                    <div className="sidebar-title">Table of Contents</div>
-                    {sections.map((s) => (
-                        <button
-                            key={s.id}
-                            className={`sidebar-link${activeSection === s.id ? " active" : ""}`}
-                            onClick={() => scrollTo(s.id)}
-                        >
-                            {s.number && <span className="sidebar-num">{s.number}</span>}
-                            <span style={{ lineHeight: 1.3 }}>{s.title}</span>
-                        </button>
-                    ))}
-                </aside>
+      {/* LAYOUT */}
+      <div className="layout">
+        {/* SIDEBAR */}
+        <aside className="sidebar">
+          <div className="sidebar-title">Table of Contents</div>
+          {sections.map((s) => (
+            <button
+              key={s.id}
+              className={`sidebar-link${activeSection === s.id ? " active" : ""}`}
+              onClick={() => scrollTo(s.id)}
+            >
+              {s.number && <span className="sidebar-num">{s.number}</span>}
+              <span style={{ lineHeight: 1.3 }}>{s.title}</span>
+            </button>
+          ))}
+        </aside>
 
-                {/* MAIN */}
-                <main>
-                    {/* Intro Banner */}
-                    <div className="intro-banner">
-                        <div className="banner-tag">Billing &amp; Payments</div>
-                        <h2 className="banner-title">Refund and Cancellation Policy</h2>
-                        <p className="banner-sub">
-                            This Refund and Cancellation Policy ("Policy") sets out the terms governing
-                            refunds, cancellations, subscription management, and billing adjustments for
-                            services provided by Climeto Sustainable Services Private Limited ("Climeto",
-                            "Company", "we", "us", or "our").
-                        </p>
-                        <div className="banner-note">
-                            ⚠️ By purchasing or subscribing to any service on the Platform, you agree to this
-                            Policy along with our Terms and Conditions and Privacy Policy.
-                        </div>
-                    </div>
+        {/* MAIN */}
+        <main>
+          {/* Intro Banner */}
+          <div className="intro-banner">
+            <div className="banner-tag">Billing &amp; Payments</div>
+            <h2 className="banner-title">Refund and Cancellation Policy</h2>
+            <p className="banner-sub">
+              This Refund and Cancellation Policy ("Policy") sets out the terms governing
+              refunds, cancellations, subscription management, and billing adjustments for
+              services provided by Climeto Sustainable Services Private Limited ("Climeto",
+              "Company", "we", "us", or "our").
+            </p>
+            <div className="banner-note">
+              ⚠️ By purchasing or subscribing to any service on the Platform, you agree to this
+              Policy along with our Terms and Conditions and Privacy Policy.
+            </div>
+          </div>
 
-                    {/* 1 */}
-                    <Block id="scope" number="1" title="Scope of Policy" onVisible={setActiveSection}>
-                        <p className="para">This Policy applies to all subscription  services, and digital compliance solutions provided through the Climeto Platform. It governs refund eligibility, cancellation procedures, and billing practices for all paid service engagements.</p>
-                    </Block>
+          {/* 1 */}
+          <Block id="scope" number="1" title="Scope of Policy" onVisible={setActiveSection}>
+            <p className="para">This Policy applies to all subscription  services, and digital compliance solutions provided through the Climeto Platform. It governs refund eligibility, cancellation procedures, and billing practices for all paid service engagements.</p>
+          </Block>
 
-                    <div className="divider" />
+          <div className="divider" />
 
-                    {/* 2 */}
-                    <Block id="subscription" number="2" title="Subscription Services" onVisible={setActiveSection}>
+          {/* 2 */}
+          <Block id="subscription" number="2" title="Subscription Services" onVisible={setActiveSection}>
 
-                        <div className="subsection">
-                            <h3>2.1 Pricing Transparency</h3>
-                            <p className="para">All subscription pricing is displayed clearly on the Application Platform in Indian Rupees (INR) prior to payment, including the applicable billing cycle, features included, processing limits, and any applicable taxes. Climeto will provide reasonable advance notice of any price revision, which will take effect from the next billing cycle.</p>
-                        </div>
-                        <div className="subsection">
-                            <h3>2.2 Automatic Renewal</h3>
-                            <p className="para">Subscriptions automatically renew at the end of each billing period unless cancelled by you before the renewal date. You will receive a reminder notification prior to renewal. Renewal charges will be applied to the payment method on file. By subscribing, you authorize Climeto (or its payment gateway partner) to charge renewal fees automatically unless you cancel in advance.</p>
-                            <p className="para">If you wish to discontinue automatic renewal, you must cancel your subscription at least 48 hours before the next renewal date to avoid being charged for the subsequent billing period.</p>
-                            <div className="info-card yellow">
-                                <div className="card-label yellow">⚠ Important — Auto-Renewal Notice</div>
-                                <p className="para" style={{ marginBottom: 0 }}>Climeto reserves the right, at its sole discretion, to modify, revise, or restructure subscription plans, features, and applicable fees at the time of or prior to any automatic renewal. This includes the right to increase subscription fees, alter plan inclusions, or discontinue existing plan tiers. Users will be notified of any such changes prior to the renewal date. If the User does not cancel their subscription at least 48 hours before the renewal date after receiving such notice, the User shall be deemed to have accepted the revised plan and fees, and Climeto shall be authorized to charge the updated renewal amount to the payment method on file. Climeto shall not be liable for any claim arising from plan modifications or fee revisions made in accordance with this clause.</p>
-                            </div>
-                        </div>
-                    </Block>
+            <div className="subsection">
+              <h3>2.1 Pricing Transparency</h3>
+              <p className="para">All subscription pricing is displayed clearly on the Application Platform in Indian Rupees (INR) prior to payment, including the applicable billing cycle, features included, processing limits, and any applicable taxes. Climeto will provide reasonable advance notice of any price revision, which will take effect from the next billing cycle.</p>
+            </div>
+            <div className="subsection">
+              <h3>2.2 Automatic Renewal</h3>
+              <p className="para">Subscriptions automatically renew at the end of each billing period unless cancelled by you before the renewal date. You will receive a reminder notification prior to renewal. Renewal charges will be applied to the payment method on file. By subscribing, you authorize Climeto (or its payment gateway partner) to charge renewal fees automatically unless you cancel in advance.</p>
+              <p className="para">If you wish to discontinue automatic renewal, you must cancel your subscription at least 48 hours before the next renewal date to avoid being charged for the subsequent billing period.</p>
+              <div className="info-card yellow">
+                <div className="card-label yellow">⚠ Important — Auto-Renewal Notice</div>
+                <p className="para" style={{ marginBottom: 0 }}>Climeto reserves the right, at its sole discretion, to modify, revise, or restructure subscription plans, features, and applicable fees at the time of or prior to any automatic renewal. This includes the right to increase subscription fees, alter plan inclusions, or discontinue existing plan tiers. Users will be notified of any such changes prior to the renewal date. If the User does not cancel their subscription at least 48 hours before the renewal date after receiving such notice, the User shall be deemed to have accepted the revised plan and fees, and Climeto shall be authorized to charge the updated renewal amount to the payment method on file. Climeto shall not be liable for any claim arising from plan modifications or fee revisions made in accordance with this clause.</p>
+              </div>
+            </div>
+          </Block>
 
-                    {/* 3 */}
-                    <Block id="refund" number="3" title="Refund Policy" onVisible={setActiveSection}>
-                        <div className="subsection">
-                            <h3>3.1 General Principle</h3>
-                            <p className="para">Given the digital  nature of our services, and the fact that costs are incurred upon service activation, subscription fees are generally non-refundable once the subscription has been activated and Application platform access has been granted.</p>
-                        </div>
-
-                        <div className="subsection">
-                            <h3>3.4 Refund Processing</h3>
-                            <p className="para">Approved refunds will be processed to the original payment method within 7 to 10 business days from the date of approval. All refunds shall be credited back to the same payment source used by the User at the time of the original transaction. Processing times may vary depending on the User's bank or payment service provider. Climeto shall not be responsible for any delays in refund crediting attributable to third-party payment systems.</p>
-                        </div>
-                    </Block>
-
-                    {/* 4 */}
-                    <Block id="cancellation" number="4" title="Cancellation of Subscription" onVisible={setActiveSection}>
-                        <div className="subsection">
-                            <h3>4.1 How to Cancel</h3>
-                            <p className="para">Users may cancel their subscription at any time through:</p>
-                            <BulletList items={[
-                                "the Application Platform dashboard under subscription settings;",
-                                "by contacting Climeto support at Support@Climeto.com with the request to cancel.",
-                            ]} />
-                            <p className="para">Cancellation requests submitted via email will be acknowledged within 48 hours and processed within 2 business days.</p>
-                        </div>
-                        <div className="subsection">
-                            <h3>4.2 Effect of Cancellation</h3>
-                            <p className="para">Upon cancellation:</p>
-                            <BulletList items={[
-                                "You will retain access to subscribed services until the end of the current billing period,",
-                                "No further subscription charges will be levied after the cancellation becomes effective,",
-                                "Previously paid fees will not be refunded, except as provided under Section 3.2 above,",
-                                "Any data submitted through the Application Platform will be retained in accordance with our data retention policy and may be accessed by you during the remainder of the billing period.",
-                            ]} />
-                        </div>
-                    </Block>
-
-                    {/* 5 */}
-                    <Block id="failed" number="5" title="Failed Payments and Billing Errors" onVisible={setActiveSection}>
-                        <p className="para">If a subscription renewal payment fails, Climeto will notify you via email and may suspend access to the Application Platform until the outstanding amount is settled. We will make reasonable attempts to recover the payment before suspending access.</p>
-                        <p className="para">If you believe a payment has been processed incorrectly, including in cases of duplicate charges, unauthorized transactions, or technical billing errors, please notify us at Support@Climeto.com within 7 days of the transaction. Climeto will investigate the matter and, where verified, issue a correction or refund as appropriate.</p>
-                        <p className="para">Payments processed through third-party payment gateways are also subject to the dispute resolution procedures of the relevant payment service provider. You may raise a dispute directly with your bank or payment provider in accordance with their policies.</p>
-                    </Block>
-
-                    {/* 6 */}
-                    <Block id="upgrades" number="6" title="Subscription Downgrades and Upgrades" onVisible={setActiveSection}>
-                        <p className="para">Users may request to upgrade or downgrade their subscription plan. Upgrades will take effect immediately upon payment of the applicable differential. Downgrades will take effect from the next billing cycle. Credits or adjustments for the remainder of a billing period will be applied at Climeto's discretion on a pro-rata basis, and no cash refund will be issued for downgrades unless the circumstances in Section 3.2 apply.</p>
-                    </Block>
-
-                    {/* 7 */}
-                    <Block id="modification" number="7" title="Modification of Plans and Services" onVisible={setActiveSection}>
-                        <p className="para">Climeto reserves the right to modify subscription plans, features, processing limits, or pricing at any time. Where such modifications are material and adversely affect an active subscription, we will provide 7 days' prior notice to affected Users. If you do not wish to continue under the revised terms, you may cancel your subscription before the changes take effect.</p>
-                    </Block>
-
-                    {/* 8 */}
-                    <Block id="dispute" number="8" title="Dispute Resolution" onVisible={setActiveSection}>
-                        <p className="para">In the event of any dispute arising out of a refund claim or billing matter, you are encouraged to first contact our Support Team at support@Climeto.com. If your concern is not satisfactorily resolved within 10-15 days, you may escalate the matter through applicable consumer dispute resolution mechanisms or seek redressal through competent courts in Indore, Madhya Pradesh, India.</p>
-                    </Block>
-
-                    {/* 9 */}
-                    <Block id="updates" number="9" title="Policy Updates" onVisible={setActiveSection}>
-                        <p className="para">Climeto may update or revise this Policy periodically to reflect operational, regulatory, or product changes. Updated versions will be published on the Application Platform with a revised effective date. Continued use of the Application Platform after such updates constitutes acceptance of the revised Policy.</p>
-                    </Block>
-
-                    {/* 10 */}
-                    <Block id="contact" number="10" title="Contact Information" onVisible={setActiveSection}>
-                        <p className="para">For questions regarding refunds, billing, subscription cancellations, or any matter covered by this Policy, please contact:</p>
-                        <InfoTable rows={[
-                            ["Company", "Climeto Sustainable Services Private Limited"],
-                            ["Email", ""],
-                            ["Address", "Plot No 1A-2A, Second Floor, Scheme No 113, Vijay Nagar, Indore, MP — 452010"],
-                        ]} />
-                    </Block>
-
-                    {/* Footer note */}
-                    <div className="footer-note">
-                        <p>© 2025 Climeto Sustainable Services Private Limited. All rights reserved.<br />By using our Platform, you agree to this Refund and Cancellation Policy.</p>
-                    </div>
-                </main>
+          {/* 3 */}
+          <Block id="refund" number="3" title="Refund Policy" onVisible={setActiveSection}>
+            <div className="subsection">
+              <h3>3.1 General Principle</h3>
+              <p className="para">Given the digital  nature of our services, and the fact that costs are incurred upon service activation, subscription fees are generally non-refundable once the subscription has been activated and Application platform access has been granted.</p>
             </div>
 
+            <div className="subsection">
+              <h3>3.4 Refund Processing</h3>
+              <p className="para">Approved refunds will be processed to the original payment method within 7 to 10 business days from the date of approval. All refunds shall be credited back to the same payment source used by the User at the time of the original transaction. Processing times may vary depending on the User's bank or payment service provider. Climeto shall not be responsible for any delays in refund crediting attributable to third-party payment systems.</p>
+            </div>
+          </Block>
 
-        </>
-    );
+          {/* 4 */}
+          <Block id="cancellation" number="4" title="Cancellation of Subscription" onVisible={setActiveSection}>
+            <div className="subsection">
+              <h3>4.1 How to Cancel</h3>
+              <p className="para">Users may cancel their subscription at any time through:</p>
+              <BulletList items={[
+                "the Application Platform dashboard under subscription settings;",
+                "by contacting Climeto support at Support@Climeto.com with the request to cancel.",
+              ]} />
+              <p className="para">Cancellation requests submitted via email will be acknowledged within 48 hours and processed within 2 business days.</p>
+            </div>
+            <div className="subsection">
+              <h3>4.2 Effect of Cancellation</h3>
+              <p className="para">Upon cancellation:</p>
+              <BulletList items={[
+                "You will retain access to subscribed services until the end of the current billing period,",
+                "No further subscription charges will be levied after the cancellation becomes effective,",
+                "Previously paid fees will not be refunded, except as provided under Section 3.2 above,",
+                "Any data submitted through the Application Platform will be retained in accordance with our data retention policy and may be accessed by you during the remainder of the billing period.",
+              ]} />
+            </div>
+          </Block>
+
+          {/* 5 */}
+          <Block id="failed" number="5" title="Failed Payments and Billing Errors" onVisible={setActiveSection}>
+            <p className="para">If a subscription renewal payment fails, Climeto will notify you via email and may suspend access to the Application Platform until the outstanding amount is settled. We will make reasonable attempts to recover the payment before suspending access.</p>
+            <p className="para">If you believe a payment has been processed incorrectly, including in cases of duplicate charges, unauthorized transactions, or technical billing errors, please notify us at Support@Climeto.com within 7 days of the transaction. Climeto will investigate the matter and, where verified, issue a correction or refund as appropriate.</p>
+            <p className="para">Payments processed through third-party payment gateways are also subject to the dispute resolution procedures of the relevant payment service provider. You may raise a dispute directly with your bank or payment provider in accordance with their policies.</p>
+          </Block>
+
+          {/* 6 */}
+          <Block id="upgrades" number="6" title="Subscription Downgrades and Upgrades" onVisible={setActiveSection}>
+            <p className="para">Users may request to upgrade or downgrade their subscription plan. Upgrades will take effect immediately upon payment of the applicable differential. Downgrades will take effect from the next billing cycle. Credits or adjustments for the remainder of a billing period will be applied at Climeto's discretion on a pro-rata basis, and no cash refund will be issued for downgrades unless the circumstances in Section 3.2 apply.</p>
+          </Block>
+
+          {/* 7 */}
+          <Block id="modification" number="7" title="Modification of Plans and Services" onVisible={setActiveSection}>
+            <p className="para">Climeto reserves the right to modify subscription plans, features, processing limits, or pricing at any time. Where such modifications are material and adversely affect an active subscription, we will provide 7 days' prior notice to affected Users. If you do not wish to continue under the revised terms, you may cancel your subscription before the changes take effect.</p>
+          </Block>
+
+          {/* 8 */}
+          <Block id="dispute" number="8" title="Dispute Resolution" onVisible={setActiveSection}>
+            <p className="para">In the event of any dispute arising out of a refund claim or billing matter, you are encouraged to first contact our Support Team at support@Climeto.com. If your concern is not satisfactorily resolved within 10-15 days, you may escalate the matter through applicable consumer dispute resolution mechanisms or seek redressal through competent courts in Indore, Madhya Pradesh, India.</p>
+          </Block>
+
+          {/* 9 */}
+          <Block id="updates" number="9" title="Policy Updates" onVisible={setActiveSection}>
+            <p className="para">Climeto may update or revise this Policy periodically to reflect operational, regulatory, or product changes. Updated versions will be published on the Application Platform with a revised effective date. Continued use of the Application Platform after such updates constitutes acceptance of the revised Policy.</p>
+          </Block>
+
+          {/* 10 */}
+          <Block id="contact" number="10" title="Contact Information" onVisible={setActiveSection}>
+            <p className="para">For questions regarding refunds, billing, subscription cancellations, or any matter covered by this Policy, please contact:</p>
+            <InfoTable rows={[
+              ["Company", "Climeto Sustainable Services Private Limited"],
+              ["Email", "support@climeto.com"],
+              ["Address", "Plot No 1A-2A, Second Floor, Scheme No 113, Vijay Nagar, Indore, MP — 452010"],
+            ]} />
+          </Block>
+
+          {/* Footer note */}
+          <div className="footer-note">
+            <p>© 2025 Climeto Sustainable Services Private Limited. All rights reserved.<br />By using our Platform, you agree to this Refund and Cancellation Policy.</p>
+          </div>
+        </main>
+      </div>
+
+
+    </>
+  );
 }
 
 function Block({ id, number, title, children, onVisible }) {
-    return (
-        <section
-            id={id}
-            className="section-block"
-            ref={(el) => {
-                if (!el) return;
-                const obs = new IntersectionObserver(
-                    ([entry]) => { if (entry.isIntersecting) onVisible(id); },
-                    { rootMargin: "-20% 0px -70% 0px" }
-                );
-                obs.observe(el);
-            }}
-        >
-            <div className="section-header-row">
-                {number && <div className="section-num-badge">{number}</div>}
-                <h2 className="section-title">{title}</h2>
-            </div>
-            <div className="section-body-wrap">{children}</div>
-        </section>
-    );
+  return (
+    <section
+      id={id}
+      className="section-block"
+      ref={(el) => {
+        if (!el) return;
+        const obs = new IntersectionObserver(
+          ([entry]) => { if (entry.isIntersecting) onVisible(id); },
+          { rootMargin: "-20% 0px -70% 0px" }
+        );
+        obs.observe(el);
+      }}
+    >
+      <div className="section-header-row">
+        {number && <div className="section-num-badge">{number}</div>}
+        <h2 className="section-title">{title}</h2>
+      </div>
+      <div className="section-body-wrap">{children}</div>
+    </section>
+  );
 }
 
 function BulletList({ items }) {
-    return (
-        <ul className="bullet-list">
-            {items.map((item, i) => (
-                <li key={i}>
-                    <span className="bullet-dot" />
-                    <span>{item}</span>
-                </li>
-            ))}
-        </ul>
-    );
+  return (
+    <ul className="bullet-list">
+      {items.map((item, i) => (
+        <li key={i}>
+          <span className="bullet-dot" />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 function InfoTable({ rows }) {
-    return (
-        <table className="info-table">
-            <tbody>
-                {rows.map(([label, value], i) => (
-                    <tr key={i}>
-                        <td>{label}</td>
-                        <td>{value}</td>
-                    </tr>
-                ))}
-            </tbody>
-        </table>
-    );
+  return (
+    <table className="info-table">
+      <tbody>
+        {rows.map(([label, value], i) => (
+          <tr key={i}>
+            <td>{label}</td>
+            <td>{value}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
 }
