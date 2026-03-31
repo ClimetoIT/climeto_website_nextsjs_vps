@@ -15,11 +15,24 @@ const getImageSrc = (img) => {
 };
 
 const allBlogs = [
-   {
+  {
     id: 1,
+    title: "Consequences of Water Pollution on Human Health: A Growing Global Crisis",
+    excerpt: "Water is fundamental to life—but today, polluted water has become one of the biggest threats to human health worldwide.",
+    image: "/plastic_credits.png",
+    category: "EPR",
+    date: "March 31, 2026",
+    readTime: "7 min read",
+    author: "Devesh Malu",
+    icon: "leaf",
+    route: "/Consequences_Water_Pollution_on_Human_Health",
+
+  },
+  {
+    id: 2,
     title: "Plastic Credits in India and Globally",
     excerpt: "A plastic credit is a tradable certificate representing a specific amount of plastic collected, recovered, recycled, or responsibly managed.",
-  image: "/plastic_credits.png",
+    image: "/plastic_credits.png",
     category: "EPR",
     date: "March 18, 2026",
     readTime: "7 min read",
@@ -29,10 +42,10 @@ const allBlogs = [
 
   },
   {
-    id: 2,
+    id: 3,
     title: "Carbon Credits Explained",
     excerpt: "Carbon credits are tradable certificates that represent the reduction, avoidance, or removal of one metric tonne of carbon dioxide (CO₂) or equivalent greenhouse gases (GHGs) from the atmosphere.",
-  image: "/carbon_credit.png",
+    image: "/carbon_credit.png",
     category: "Bioplastics",
     date: "Feb 21, 2026",
     readTime: "7 min read",
@@ -41,11 +54,11 @@ const allBlogs = [
     route: "/Carbon-Credits",
 
   },
-   {
-    id: 3,
+  {
+    id: 4,
     title: "Are Bioplastics Really Better for India?",
     excerpt: "The world is drowning in plastic. From overflowing landfills to microplastic-laden oceans, the scale of this crisis is staggering.",
-      image: "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=800&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=800&h=400&fit=crop",
     category: "Bioplastics",
     date: "Feb 9, 2026",
     readTime: "5 min read",
@@ -55,7 +68,7 @@ const allBlogs = [
 
   },
   {
-    id: 4,
+    id: 5,
     title: "Article 6 of the Paris Agreement & Carbon Markets: Detailed Guide for 2025",
     excerpt: "Carbon markets are no longer just a policy discussion — they are becoming the backbone of how countries and businesses plan to reach net zero emissions.",
     image: blogImg,
@@ -67,7 +80,7 @@ const allBlogs = [
     route: "/paris",
   },
   {
-    id: 5,
+    id: 6,
     title: "Decoding India's Carbon Market: A Bold Step Towards a Greener Future",
     excerpt: "India, a nation balancing rapid economic growth with a deep commitment to environmental responsibility, is taking significant strides in the fight against climate change.",
     image: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=400&fit=crop",
@@ -79,7 +92,7 @@ const allBlogs = [
     route: "/carbonMarketLanding",
   },
   {
-    id: 6,
+    id: 7,
     title: "CPCB's SIMP Portal: A Step Towards Streamlined Plastic Waste Management Compliance",
     excerpt: "The Central Pollution Control Board (CPCB) has launched the Sellers, Importers, and Manufacturers of Plastic Raw Materials (SIMP) Portal.",
     image: "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=800&h=400&fit=crop",
@@ -91,7 +104,7 @@ const allBlogs = [
     route: "/cpcbsimp",
   },
   {
-    id: 7,
+    id: 8,
     title: "Extended Producer Responsibility (EPR) in the UK: A Step Towards Sustainability",
     excerpt: "The United Kingdom is implementing a transformative approach to managing packaging waste through the Extended Producer Responsibility (EPR) system.",
     image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800&h=400&fit=crop",
@@ -103,7 +116,7 @@ const allBlogs = [
     route: "/extended-producer",
   },
   {
-    id: 8,
+    id: 9,
     title: "China's Circular Economy and Producer Responsibility Extension System",
     excerpt: "China's Circular Economy Promotion Law (CEPL) is a cornerstone of the country's legal framework for sustainable development.",
     image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=400&fit=crop",
@@ -115,7 +128,7 @@ const allBlogs = [
     route: "/China-EPR",
   },
   {
-    id: 9,
+    id: 10,
     title: "Extended Producer Responsibility (EPR) in India: A Complete Guide for Businesses",
     excerpt: "Extended Producer Responsibility (EPR) in India: A Complete Guide for Businesses.",
     image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&h=400&fit=crop",
@@ -127,7 +140,7 @@ const allBlogs = [
     route: "/EPR-india",
   },
   {
-    id: 10,
+    id: 11,
     title: "India's Strategic Environmental Reforms in 2025: Advancing Climate Action and Waste Management",
     excerpt: "In 2025, India has accelerated environmental reforms to drive sustainability across industries.",
     image: "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=800&h=400&fit=crop",
@@ -139,7 +152,7 @@ const allBlogs = [
     route: "/India-Strategy",
   },
   {
-    id: 11,
+    id: 12,
     title: "Nature-Based Solutions: The World's Most Powerful Yet Underutilized Climate Tool",
     excerpt: "In the escalating race against climate change, the world is investing in technology: carbon capture machines, green hydrogen.",
     image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&h=400&fit=crop",
@@ -151,7 +164,7 @@ const allBlogs = [
     route: "/Nature-based",
   },
   {
-    id: 12,
+    id: 13,
     title: "Turning Plastic Waste into Value: How Indian Brands Can Leverage Plastic Credits for Scalable Impact",
     excerpt: "India's plastic waste challenge is no longer just an environmental concern—it's a business imperative.",
     image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=400&fit=crop",
@@ -163,7 +176,7 @@ const allBlogs = [
     route: "/Turning-platic"
   },
   {
-    id: 13,
+    id: 14,
     title: "India's Vinyl Waste Crisis: A Real Problem, A Real Opportunity",
     excerpt: "India is growing fast. With a thriving economy, a booming population, and a culture of innovation, it's one of the world's most dynamic nations.",
     image: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800&h=400&fit=crop",
@@ -242,8 +255,8 @@ const BlogPage = () => {
                 EcoVoice Blog
               </h1>
             </div>
-            <p style={{ 
-              fontSize: 'clamp(1.125rem, 2vw, 1.5rem)', 
+            <p style={{
+              fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
               maxWidth: '800px',
               margin: '0 auto',
               opacity: 0.95
