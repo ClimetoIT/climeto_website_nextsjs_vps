@@ -19,7 +19,7 @@ const allBlogs = [
     id: 1,
     title: "Consequences of Water Pollution on Human Health: A Growing Global Crisis",
     excerpt: "Water is fundamental to life—but today, polluted water has become one of the biggest threats to human health worldwide.",
-    image: "/plastic_credits.png",
+    image: "/water_pollution.png",
     category: "EPR",
     date: "March 31, 2026",
     readTime: "7 min read",
