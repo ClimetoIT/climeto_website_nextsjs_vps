@@ -9,507 +9,334 @@ const navLinks = [
   { label: "Career", href: "#" },
 ];
 
-const serviceLinks = [
-  "Plastic Stewardship Program",
-  "Carbon-Network",
-  "Plastic-Network",
-  "Sustainability Services",
-  "EPR Plastic",
-  "EPR Battery",
-  "EPR Tyre",
-  "EPR E-Waste",
-  "Carbon Offsets",
-  "Net Zero Achievement",
+const keyFeatures = [
+  "Centralized EPR certificate trading platform",
+  "Supports multiple waste streams (Plastic, E-waste, Battery, Tyre, Used Oil)",
+  "Accessible to registered PIBOs and recyclers",
+  "Designed for traceability and compliance monitoring",
+  "Operates under CPCB regulatory framework",
 ];
 
-const consequences = [
+const whoCanUse = [
+  "Producers",
+  "Importers",
+  "Brand Owners (PIBOs)",
+  "Authorized Recyclers",
+];
+
+const processSteps = [
+  { num: "01", text: "Recyclers generate EPR certificates based on verified recycling" },
+  { num: "02", text: "Certificates are listed on the platform" },
+  { num: "03", text: "Obligated entities (PIBOs) can procure certificates" },
+  { num: "04", text: "Transactions are recorded and tracked digitally" },
+  { num: "05", text: "CPCB can monitor compliance through centralized data" },
+];
+
+const whyImportant = [
   {
     num: "01",
-    title: "Waterborne Diseases and Infections",
-    intro:
-      "One of the most immediate and severe impacts of water pollution is the spread of waterborne diseases. Contaminated water often contains bacteria, viruses, and parasites such as:",
-    list1: ["E. coli", "Vibrio cholerae", "Salmonella", "Giardia"],
-    subheading: "Health Impacts:",
-    list2: [
-      "Diarrhea and dehydration",
-      "Cholera and typhoid fever",
-      "Hepatitis A and E",
-      "Dysentery",
-    ],
-    footer:
-      "Children, elderly individuals, and immunocompromised populations are the most vulnerable. Repeated exposure can lead to chronic malnutrition and weakened immunity, especially in children.",
+    title: "Structured EPR Compliance",
+    desc: "Moves the ecosystem from fragmented processes to a system-driven compliance mechanism.",
   },
   {
     num: "02",
-    title: "Long-Term Exposure to Toxic Chemicals",
-    intro:
-      "Industrial and agricultural pollution introduces toxic chemicals into water systems, which accumulate in the human body over time.",
-    subheading1: "Key Pollutants:",
-    list1: [
-      "Heavy metals (lead, mercury, arsenic, cadmium)",
-      "Pesticides and herbicides",
-      "Industrial solvents",
-    ],
-    subheading: "Health Consequences:",
-    list2: [
-      "Neurological disorders",
-      "Kidney and liver damage",
-      "Developmental delays in children",
-      "Hormonal and endocrine disruption",
-    ],
-    footer:
-      "For example, arsenic-contaminated groundwater has been linked to skin lesions, cardiovascular disease, and increased cancer risk.",
+    title: "Improved Traceability",
+    desc: "Helps track certificate generation and usage, reducing risks of duplication and misreporting.",
   },
   {
     num: "03",
-    title: "Increased Cancer Risk",
-    intro:
-      "Certain water pollutants are known carcinogens. Long-term consumption of polluted water containing:",
-    list1: ["Arsenic", "Nitrates", "Industrial by-products"],
-    subheading: "can significantly increase the risk of:",
-    list2: [
-      "Bladder cancer",
-      "Liver cancer",
-      "Skin cancer",
-      "Gastrointestinal cancers",
-    ],
-    footer:
-      "The risk is especially high in regions where water quality monitoring and treatment infrastructure is weak.",
-    quote:
-      '"The consequences of water pollution on human health are severe, far-reaching, and preventable."',
+    title: "Foundation for Market-Based EPR",
+    desc: "Supports a gradual shift toward a market-linked approach for EPR certificate transactions.",
   },
   {
     num: "04",
-    title: "Reproductive and Developmental Health Issues",
-    intro:
-      "Water pollution affects not only individuals but future generations.",
-    subheading: "Impacts Include:",
-    list2: [
-      "Reduced fertility",
-      "Pregnancy complications",
-      "Low birth weight",
-      "Birth defects",
-    ],
-    footer:
-      "Endocrine-disrupting chemicals found in polluted water can interfere with hormonal systems, affecting reproductive health in both men and women.",
-  },
-  {
-    num: "05",
-    title: "Neurological and Cognitive Disorders",
-    intro:
-      "Heavy metals like lead and mercury are particularly harmful to the nervous system.",
-    subheading: "Effects on Human Health:",
-    list2: [
-      "Learning disabilities in children",
-      "Reduced IQ and memory loss",
-      "Behavioral problems",
-      "Neurodegenerative conditions",
-    ],
-    footer:
-      "Children exposed to polluted water during early development face irreversible cognitive and neurological damage.",
-  },
-  {
-    num: "06",
-    title: "Skin and Eye Disorders",
-    intro:
-      "Using polluted water for bathing, washing, or daily hygiene can lead to:",
-    list2: [
-      "Skin rashes and infections",
-      "Dermatitis",
-      "Eye irritation and infections",
-    ],
-    footer:
-      "In areas with limited access to clean water, these conditions often go untreated, worsening overall health outcomes.",
-  },
-  {
-    num: "07",
-    title: "Indirect Health Impacts Through the Food Chain",
-    intro:
-      "Water pollution doesn't stop at drinking water—it enters the food system.",
-    subheading: "Pollutants accumulate in:",
-    list2: ["Fish and seafood", "Crops irrigated with polluted water"],
-    footer:
-      "When humans consume contaminated food, toxins bioaccumulate in the body, leading to long-term health risks even if drinking water appears safe.",
+    title: "Supports Circular Economy in India",
+    desc: "Encourages efficient recycling systems, better waste management infrastructure, and increased accountability across stakeholders.",
   },
 ];
 
+const digitalImpacts = [
+  "Enables real-time compliance tracking",
+  "Supports data-driven decision making",
+  "Standardizes reporting formats",
+  "Enhances regulatory oversight",
+];
+
+const businessConsiderations = [
+  "Understand EPR certificate trading mechanisms",
+  "Monitor CPCB regulations and updates",
+  "Partner with verified recyclers",
+  "Maintain accurate compliance records",
+  "Plan procurement strategies for EPR credits",
+];
+
+const faqs = [
+  {
+    q: "What is ETP in EPR?",
+    a: "ETP (Electronic Trading Platform) is a CPCB-backed system that facilitates the digital trading and settlement of EPR certificates.",
+  },
+  {
+    q: "Is EPRETP mandatory for EPR compliance?",
+    a: "The platform is part of the evolving compliance framework. Stakeholders must follow CPCB guidelines, and usage may depend on applicable regulations for specific waste streams.",
+  },
+  {
+    q: "Which waste categories are covered under EPRETP?",
+    a: "Plastic Waste, E-waste, Battery Waste, Tyre Waste, and Used Oil.",
+  },
+  {
+    q: "Who regulates the EPRETP platform?",
+    a: "The platform operates under the supervision of the Central Pollution Control Board (CPCB).",
+  },
+];
+
+const wasteTags = ["Plastic Waste", "E-waste", "Battery Waste", "Tyre Waste", "Used Oil"];
+
 const styles = `
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-  /* Page-scoped reset only */
+  .climeto-root * { box-sizing: border-box; }
 
-  /* Hero */
-  .hero {
-    background: linear-gradient(135deg, #0d3d20 0%, #1a6b3c 50%, #2a8a50 100%);
+  .climeto-root {
+    min-height: 100vh;
+    background: #f7f8f5;
+    font-family: 'DM Sans', sans-serif;
+    color: #1a2a1a;
+  }
+
+  /* NAV */
+  .c-nav {
+    background: #fff;
+    border-bottom: 1px solid #d4e8d4;
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .c-nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .c-logo { display: flex; flex-direction: column; }
+  .c-logo-text { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: #0d3d20; line-height: 1; }
+  .c-logo-sub { font-size: 0.65rem; color: #5a9a6a; letter-spacing: 1px; text-transform: uppercase; }
+  .c-nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; margin: 0; padding: 0; }
+  .c-nav-links a { font-size: 0.82rem; color: #3a5a3a; text-decoration: none; padding: 6px 12px; border-radius: 6px; transition: background 0.15s; }
+  .c-nav-links a:hover { background: #f0f8f2; }
+  .c-services-btn { font-size: 0.82rem; color: #1a6b3c; background: #e0f4e8; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500; }
+
+  /* HERO */
+  .c-hero {
+    background: linear-gradient(135deg, #0d3d20 0%, #1a6b3c 55%, #2a8a50 100%);
     color: #fff;
-    padding: 3rem 2rem 2.5rem;
+    padding: 3.5rem 2rem 3rem;
     position: relative;
     overflow: hidden;
   }
-
-  .hero::before {
+  .c-hero::before {
     content: '';
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
+    position: absolute; inset: 0;
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
-
-  .hero-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
+  .c-hero-inner { max-width: 1000px; margin: 0 auto; position: relative; z-index: 1; }
+  .c-hero-meta { display: flex; gap: 0.6rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+  .c-tag {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 20px;
+    background: rgba(255,255,255,0.15); color: #d4f0e0;
   }
-
-  .hero-meta {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.15);
-    color: #d4f0e0;
-  }
-
-  .hero h1 {
+  .c-hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 0.75rem;
-    color: #fff;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 700; line-height: 1.2; margin-bottom: 0.6rem; color: #fff;
   }
-
-  .hero-subtitle {
-    font-size: 1rem;
-    color: #a8d8bc;
-    margin-bottom: 1.5rem;
-    font-style: italic;
-  }
-
-  .hero-stats {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-  }
-
-  .hero-stat {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.85rem;
-    color: #c8eeda;
-  }
-
-  .hero-stat svg { width: 16px; height: 16px; opacity: 0.8; }
-
-  .hero-img {
-    width: 100%;
-    border-radius: 12px;
-    height: 280px;
-    object-fit: cover;
+  .c-hero-subtitle { font-size: 1rem; color: #a8d8bc; margin-bottom: 1.5rem; font-style: italic; }
+  .c-hero-stats { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .c-hero-stat { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #c8eeda; }
+  .c-hero-stat svg { width: 16px; height: 16px; opacity: 0.8; }
+  .c-hero-img-wrap {
+    width: 100%; border-radius: 12px; overflow: hidden;
     border: 2px solid rgba(255,255,255,0.2);
+    background: linear-gradient(180deg, #0a2e15 0%, #1a5030 40%, #2a7048 70%);
   }
+  .c-hero-img-wrap img { width: 100%; height: auto; display: block; }
 
-  .hero-img-placeholder {
-    width: 100%;
-    border-radius: 12px;
-    height: auto;
-    background: linear-gradient(180deg, #0a2e15 0%, #1a5030 40%, #2a7048 70%, #1a4028 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid rgba(255,255,255,0.15);
-    position: relative;
-    overflow: hidden;
+  /* MAIN */
+  .c-main { max-width: 780px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
+
+  .c-para { font-size: 1rem; line-height: 1.8; color: #2a3a2a; margin-bottom: 1rem; }
+  .c-para-lead { font-size: 1.08rem; font-weight: 500; }
+
+  .c-divider { width: 100%; height: 1px; background: #d4e8d4; margin: 2rem 0; }
+
+  .c-section-label {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; color: #1a6b3c; margin-bottom: 0.4rem; margin-top: 2.5rem;
   }
-
-  /* Main layout */
-  .main {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 2.5rem 2rem 4rem;
-  }
-
-  /* Intro section */
-  .intro-para {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: #2a3a2a;
-    margin-bottom: 1rem;
-  }
-
-  /* Section dividers */
-  .section-label {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #1a6b3c;
-    margin-bottom: 0.5rem;
-    margin-top: 2.5rem;
-  }
-
-  .section-divider {
-    width: 100%;
-    height: 1px;
-    background: #d4e8d4;
-    margin: 2rem 0;
-  }
-
-  /* What is section */
-  .what-is-box {
-    background: #fff;
-    border: 1px solid #d4e8d4;
-    border-left: 4px solid #1a6b3c;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin: 1.5rem 0;
-  }
-
-  .what-is-box h2 {
+  .c-h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    color: #1a2a1a;
-    margin-bottom: 0.75rem;
+    font-size: 1.55rem; font-weight: 700; color: #1a2a1a;
+    margin-bottom: 0.75rem; line-height: 1.3;
   }
-
-  /* Feature cards */
-  .feature-list {
-    background: #f0f8f2;
-    border-radius: 10px;
-    padding: 1.25rem 1.5rem;
-    margin: 1rem 0 1.5rem;
-    border: 1px solid #d4e8d4;
-  }
-
-  .feature-list ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .feature-list li {
-    font-size: 0.9rem;
-    color: #2a4a2a;
-    padding-left: 1.2rem;
-    position: relative;
-    line-height: 1.5;
-  }
-
-  .feature-list li::before {
-    content: '●';
-    color: #1a6b3c;
-    font-size: 0.5rem;
-    position: absolute;
-    left: 0;
-    top: 0.35rem;
-  }
-
-  /* Section heading */
-  .section-h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #1a2a1a;
-    margin-bottom: 0.75rem;
-    line-height: 1.3;
-  }
-
-  .section-h3 {
+  .c-h3 {
     font-family: 'DM Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #1a3a1a;
+    font-size: 0.95rem; font-weight: 600; color: #1a3a1a;
     margin: 1rem 0 0.5rem;
   }
 
-  /* Consequence blocks */
-  .consequence-block {
-    border-top: 1px solid #d4e8d4;
-    padding-top: 2rem;
-    margin-top: 2rem;
-  }
-
-  .consequence-num {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #5a9a6a;
-    margin-bottom: 0.4rem;
-  }
-
-  /* Quote block */
-  .pull-quote {
-    border-left: 4px solid #1a6b3c;
-    margin: 1.5rem 0;
-    padding: 1rem 1.5rem;
-    background: #f0f8f2;
-    border-radius: 0 8px 8px 0;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
-    font-style: italic;
-    color: #1a4a2a;
-    line-height: 1.6;
-  }
-
-  /* Social/wider impact */
-  .impact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 12px;
-    margin: 1rem 0;
-  }
-
-  .impact-card {
+  /* Highlight box */
+  .c-highlight-box {
     background: #fff;
     border: 1px solid #d4e8d4;
+    border-left: 4px solid #1a6b3c;
     border-radius: 8px;
-    padding: 1rem;
-    font-size: 0.875rem;
-    color: #2a4a2a;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    line-height: 1.5;
+    padding: 1.25rem 1.5rem;
+    margin: 1.25rem 0;
+    font-size: 0.95rem; line-height: 1.7; color: #2a4a2a;
+  }
+  .c-highlight-box strong { color: #0d3d20; }
+
+  /* Feature list */
+  .c-list-box {
+    background: #f0f8f2; border-radius: 10px;
+    padding: 1.1rem 1.4rem; margin: 0.75rem 0 1.25rem;
+    border: 1px solid #d4e8d4;
+  }
+  .c-list-box ul { list-style: none; display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; }
+  .c-list-box li {
+    font-size: 0.9rem; color: #2a4a2a;
+    padding-left: 1.2rem; position: relative; line-height: 1.55;
+  }
+  .c-list-box li::before {
+    content: '●'; color: #1a6b3c; font-size: 0.45rem;
+    position: absolute; left: 0; top: 0.4rem;
   }
 
-  .impact-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #1a6b3c;
-    margin-top: 4px;
-    flex-shrink: 0;
+  /* Process steps */
+  .c-steps { display: flex; flex-direction: column; gap: 10px; margin: 1rem 0; }
+  .c-step {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: #fff; border: 1px solid #d4e8d4;
+    border-radius: 8px; padding: 12px 16px;
+  }
+  .c-step-num {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 1px;
+    color: #1a6b3c; background: #e0f4e8;
+    border-radius: 4px; padding: 3px 7px; flex-shrink: 0; margin-top: 1px;
+  }
+  .c-step span { font-size: 0.9rem; color: #2a4a2a; line-height: 1.5; }
+
+  /* Why important grid */
+  .c-why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 1rem 0; }
+  .c-why-card {
+    background: #fff; border: 1px solid #d4e8d4;
+    border-radius: 10px; padding: 1.1rem;
+  }
+  .c-why-card-num { font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px; color: #5a9a6a; margin-bottom: 6px; }
+  .c-why-card-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: #1a2a1a; margin-bottom: 6px; }
+  .c-why-card-desc { font-size: 0.85rem; color: #4a6a4a; line-height: 1.55; }
+
+  /* Solution items */
+  .c-solution-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 0; border-bottom: 1px solid #eaf2ea;
+    font-size: 0.9rem; color: #2a4a2a; line-height: 1.55;
+  }
+  .c-solution-icon {
+    width: 26px; height: 26px; border-radius: 50%; background: #e0f4e8;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 0.72rem; color: #1a6b3c; font-weight: 700;
   }
 
-  /* Solutions */
-  .solution-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid #eaf2ea;
-    font-size: 0.9rem;
-    color: #2a4a2a;
-    line-height: 1.5;
+  /* Waste tags */
+  .c-waste-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0.75rem 0; }
+  .c-waste-tag {
+    font-size: 0.78rem; font-weight: 500; color: #1a6b3c;
+    background: #e0f4e8; border: 1px solid #b0d8b8;
+    padding: 5px 14px; border-radius: 20px;
   }
 
-  .solution-icon {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: #e0f4e8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 0.75rem;
-    color: #1a6b3c;
-    font-weight: 700;
+  /* Pull quote */
+  .c-pull-quote {
+    border-left: 4px solid #1a6b3c;
+    margin: 1.5rem 0; padding: 1rem 1.5rem;
+    background: #f0f8f2; border-radius: 0 8px 8px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; font-style: italic; color: #1a4a2a; line-height: 1.65;
+  }
+
+  /* FAQ */
+  .c-faq { display: flex; flex-direction: column; gap: 1px; margin: 1rem 0; }
+  .c-faq-item { border: 1px solid #d4e8d4; border-radius: 8px; overflow: hidden; margin-bottom: 8px; }
+  .c-faq-q {
+    background: #fff; padding: 14px 16px;
+    font-weight: 600; font-size: 0.9rem; color: #1a2a1a;
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer;
+  }
+  .c-faq-q:hover { background: #f8fdf9; }
+  .c-faq-chevron { color: #1a6b3c; font-size: 1rem; transition: transform 0.2s; }
+  .c-faq-chevron.open { transform: rotate(180deg); }
+  .c-faq-a {
+    background: #f0f8f2; padding: 12px 16px;
+    font-size: 0.88rem; color: #3a5a3a; line-height: 1.6;
+    border-top: 1px solid #d4e8d4;
   }
 
   /* References */
-  .ref-links {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 1rem;
+  .c-ref-links { display: flex; flex-direction: column; gap: 8px; margin-top: 1rem; }
+  .c-ref-link {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 16px; background: #fff;
+    border: 1px solid #d4e8d4; border-radius: 8px;
+    text-decoration: none; color: #1a6b3c;
+    font-size: 0.875rem; font-weight: 500;
+    transition: background 0.15s;
   }
-
-  .ref-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    background: #fff;
-    border: 1px solid #d4e8d4;
-    border-radius: 8px;
-    text-decoration: none;
-    color: #1a6b3c;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: background 0.2s;
-  }
-
-  .ref-link:hover { background: #f0f8f2; }
-
-  .ref-link-icon {
-    font-size: 0.8rem;
-    opacity: 0.7;
-  }
+  .c-ref-link:hover { background: #f0f8f2; }
 
   /* CTA */
-  .cta-box {
+  .c-cta {
     background: linear-gradient(135deg, #0d3d20, #1a6b3c);
-    border-radius: 12px;
-    padding: 2rem;
-    margin: 2.5rem 0 0;
-    color: #fff;
-    text-align: center;
+    border-radius: 14px; padding: 2.25rem 2rem;
+    margin: 2.5rem 0 0; color: #fff; text-align: center;
   }
+  .c-cta h3 { font-family: 'Playfair Display', serif; font-size: 1.45rem; margin-bottom: 0.75rem; }
+  .c-cta p { font-size: 0.9rem; color: #a8d8bc; margin-bottom: 1.5rem; line-height: 1.65; }
+  .c-cta-list { list-style: none; margin: 0 0 1.25rem; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .c-cta-list li { font-size: 0.88rem; color: #c8eeda; }
+  .c-cta-list li::before { content: '✓ '; opacity: 0.75; }
 
-  .cta-box h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    margin-bottom: 0.75rem;
+  /* Footer */
+  .c-footer {
+    background: #0d3d20; color: #a8d8bc;
+    text-align: center; padding: 1.5rem;
+    font-size: 0.8rem; letter-spacing: 0.5px;
   }
-
-  .cta-box p {
-    font-size: 0.9rem;
-    color: #a8d8bc;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-  }
-
-  .cta-btn {
-    display: inline-block;
-    background: #fff;
-    color: #1a6b3c;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 600;
-    padding: 10px 24px;
-    border-radius: 24px;
-    text-decoration: none;
-    transition: transform 0.2s;
-  }
-
-  .cta-btn:hover { transform: scale(1.03); }
 
   @media (max-width: 700px) {
-    .main { padding: 2rem 1rem 3rem; }
+    .c-main { padding: 2rem 1rem 3rem; }
+    .c-nav-links { display: none; }
+    .c-why-grid { grid-template-columns: 1fr; }
   }
 `;
 
 function Navbar() {
   return (
-    <nav className="nav">
-      <div className="nav-inner">
-        <div>
-          <span className="logo-text">Climeto</span>
-          <span className="logo-sub">Sustainable Services</span>
+    <nav className="c-nav">
+      <div className="c-nav-inner">
+        <div className="c-logo">
+          <span className="c-logo-text">Climeto</span>
+          <span className="c-logo-sub">Sustainable Services</span>
         </div>
-        <ul className="nav-links">
+        <ul className="c-nav-links">
           {navLinks.map((l) => (
-            <li key={l.label}>
-              <a href={l.href}>{l.label}</a>
-            </li>
+            <li key={l.label}><a href={l.href}>{l.label}</a></li>
           ))}
-          <li>
-            <button className="services-btn">Services ▾</button>
-          </li>
+          <li><button className="c-services-btn">Services ▾</button></li>
         </ul>
       </div>
     </nav>
@@ -518,31 +345,38 @@ function Navbar() {
 
 function Hero() {
   return (
-    <div className="hero">
-      <div className="hero-inner">
-        <div className="hero-meta">
-          <span className="tag">Global Health</span>
-          <span className="tag">Environment</span>
-          <span className="tag">2025 · Special Report</span>
-          <span className="tag">Public Health</span>
+    <div className="c-hero">
+      <div className="c-hero-inner">
+        <div className="c-hero-meta">
+          <span className="c-tag">EPR Compliance</span>
+          <span className="c-tag">Circular Economy</span>
+          <span className="c-tag">2025 · Special Report</span>
+          <span className="c-tag">India Regulations</span>
         </div>
-        <h1>Consequences of Water Pollution on Human Health: A Growing Global Crisis</h1>
-        <div className="hero-subtitle">A Growing Global Crisis</div>
-        <div className="hero-stats">
-          <div className="hero-stat">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></svg>
-            12 min read
+        <h1>India's EPR Ecosystem Enters a New Phase with the EPRETP Exchange</h1>
+        <div className="c-hero-subtitle">
+          A structured, digital, and traceable mechanism for EPR compliance in India
+        </div>
+        <div className="c-hero-stats">
+          <div className="c-hero-stat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+            </svg>
+            8 min read
           </div>
-          <div className="hero-stat">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>
-            Global Perspective
+          <div className="c-hero-stat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+            India · CPCB · MSTC
           </div>
         </div>
-        <div className="hero-img-placeholder">
+        <div className="c-hero-img-wrap">
           <img
             src="/erpexchange.png"
             alt="India's EPR Ecosystem - EPRETP Exchange"
-            style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '12px' }}
           />
         </div>
       </div>
@@ -550,171 +384,200 @@ function Hero() {
   );
 }
 
-function ConsequenceBlock({ item }) {
+function FaqItem({ q, a }) {
+  const [open, setOpen] = useState(false);
   return (
-    <div className="consequence-block">
-      <div className="consequence-num">Consequence {item.num}</div>
-      <h2 className="section-h2">{item.title}</h2>
-      <p className="intro-para">{item.intro}</p>
-      {item.list1 && (
-        <div className="feature-list">
-          <ul>
-            {item.list1.map((i) => <li key={i}>{i}</li>)}
-          </ul>
-        </div>
-      )}
-      {item.subheading1 && <h3 className="section-h3">{item.subheading1}</h3>}
-      {item.subheading && <h3 className="section-h3">{item.subheading}</h3>}
-      {item.list2 && (
-        <div className="feature-list">
-          <ul>
-            {item.list2.map((i) => <li key={i}>{i}</li>)}
-          </ul>
-        </div>
-      )}
-      {item.footer && <p className="intro-para" style={{ marginTop: "0.75rem" }}>{item.footer}</p>}
-      {item.quote && <blockquote className="pull-quote">{item.quote}</blockquote>}
+    <div className="c-faq-item">
+      <div className="c-faq-q" onClick={() => setOpen(!open)}>
+        <span>{q}</span>
+        <span className={`c-faq-chevron${open ? " open" : ""}`}>▾</span>
+      </div>
+      {open && <div className="c-faq-a">{a}</div>}
     </div>
   );
 }
 
 export default function ClimetoBlog() {
   return (
-    <div style={{ minHeight: "100vh", background: "#f7f8f5" }}>
+    <div className="climeto-root">
       <style>{styles}</style>
+      <Navbar />
       <Hero />
 
-      <main className="main">
+      <main className="c-main">
+
         {/* Intro */}
-        <p className="intro-para" style={{ marginTop: "1.5rem", fontWeight: 500, fontSize: "1.1rem" }}>
-          Water pollution poses a severe and growing threat to human health worldwide.
+        <p className="c-para c-para-lead" style={{ marginTop: "1.75rem" }}>
+          India's environmental compliance framework is evolving rapidly.
         </p>
-        <p className="intro-para">
-          Water is fundamental to life—but today, polluted water has become one of the biggest threats to human health worldwide. From contaminated drinking water to polluted rivers, lakes, and groundwater, water pollution directly and indirectly affects millions of people every year.
-        </p>
-        <p className="intro-para">
-          According to global health estimates, unsafe water and poor sanitation contribute to hundreds of thousands of preventable deaths annually, especially in developing economies. The consequences extend far beyond short-term illness, impacting long-term health, productivity, and quality of life.
-        </p>
-        <p className="intro-para">
-          This blog explores the major consequences of water pollution on human health, the pollutants responsible, and why addressing water contamination is critical for sustainable development.
+        <p className="c-para">
+          A key development in this transition is the Electronic Trading Platform (ETP), developed by MSTC Limited under the guidance of the Central Pollution Control Board. The EPRETP Exchange signals a clear shift towards structured, digital, and traceable mechanisms for managing Extended Producer Responsibility (EPR) obligations in India.
         </p>
 
-        <div className="section-divider" />
+        <div className="c-divider" />
 
-        {/* What is Water Pollution */}
-        <div className="section-label">Foundation</div>
-        <h2 className="section-h2">What Is Water Pollution?</h2>
-        <div className="what-is-box">
-          <p style={{ fontSize: "0.95rem", lineHeight: 1.7, color: "#2a4a2a", marginBottom: "0.75rem" }}>
-            Water pollution occurs when harmful substances—chemical, biological, or physical—enter water bodies, making the water unsafe for drinking, cooking, bathing, agriculture, or industrial use.
-          </p>
-        </div>
-        <h3 className="section-h3">Common Sources of Water Pollution</h3>
-        <div className="feature-list">
-          <ul>
-            {[
-              "Industrial effluents and chemical discharge",
-              "Untreated sewage and wastewater",
-              "Agricultural runoff (fertilizers and pesticides)",
-              "Plastic waste and microplastics",
-              "Heavy metals from mining and manufacturing",
-              "Oil spills and urban stormwater runoff",
-            ].map((item) => <li key={item}>{item}</li>)}
-          </ul>
+        {/* What is EPRETP */}
+        <div className="c-section-label">Foundation</div>
+        <h2 className="c-h2">What is the EPRETP Exchange?</h2>
+        <div className="c-highlight-box">
+          The <strong>EPRETP Exchange</strong> is a CPCB-backed electronic trading and settlement platform that enables registered stakeholders to buy, sell, and manage EPR certificates in a regulated and traceable digital environment.
         </div>
 
-        {/* All Consequence Blocks */}
-        {consequences.map((c) => (
-          <ConsequenceBlock key={c.num} item={c} />
-        ))}
-
-        {/* Social & Economic */}
-        <div className="consequence-block">
-          <div className="section-label">Wider Impact</div>
-          <h2 className="section-h2">Social and Economic Consequences of Water Pollution</h2>
-          <p className="intro-para">Beyond physical health, water pollution creates wider societal impacts:</p>
-          <div className="impact-grid">
-            {[
-              "Increased healthcare costs",
-              "Loss of productivity due to illness",
-              "Reduced access to safe drinking water",
-              "Greater inequality affecting low-income communities",
-            ].map((item) => (
-              <div key={item} className="impact-card">
-                <div className="impact-dot" />
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-          <p className="intro-para" style={{ marginTop: "0.75rem" }}>
-            Communities dependent on polluted water sources often face cycles of poverty and poor health, making water pollution both a public health and development challenge.
-          </p>
+        <h3 className="c-h3">Key Features of EPRETP Exchange</h3>
+        <div className="c-list-box">
+          <ul>{keyFeatures.map((f) => <li key={f}>{f}</li>)}</ul>
         </div>
 
-        {/* Solutions */}
-        <div className="consequence-block">
-          <div className="section-label">Solutions</div>
-          <h2 className="section-h2">Why Preventing Water Pollution Is a Public Health Priority</h2>
-          <p className="intro-para">
-            Addressing water pollution is not just an environmental issue—it is a human health imperative.
-          </p>
-          <h3 className="section-h3">Key Solutions Include:</h3>
-          {[
-            "Strengthening wastewater treatment systems",
-            "Enforcing industrial discharge regulations",
-            "Promoting responsible agricultural practices",
-            "Reducing plastic and chemical pollution",
-            "Encouraging corporate accountability and compliance",
-          ].map((s, i) => (
-            <div key={s} className="solution-item">
-              <div className="solution-icon">{i + 1}</div>
-              <span>{s}</span>
+        <div className="c-divider" />
+
+        {/* Who Can Use */}
+        <div className="c-section-label">Eligibility</div>
+        <h2 className="c-h2">Who Can Use the EPRETP Platform?</h2>
+        <p className="c-para">
+          The platform is designed for registered entities under India's EPR framework:
+        </p>
+        <div className="c-list-box">
+          <ul>{whoCanUse.map((w) => <li key={w}>{w}</li>)}</ul>
+        </div>
+        <p className="c-para">
+          These stakeholders can participate in a formalized system for EPR certificate transactions, subject to compliance guidelines.
+        </p>
+
+        <div className="c-divider" />
+
+        {/* How It Works */}
+        <div className="c-section-label">Process</div>
+        <h2 className="c-h2">How Does the EPRETP Exchange Work?</h2>
+        <p className="c-para">
+          The EPRETP Exchange functions as a digital trading layer within the existing EPR ecosystem.
+        </p>
+        <h3 className="c-h3">Process Overview:</h3>
+        <div className="c-steps">
+          {processSteps.map((s) => (
+            <div className="c-step" key={s.num}>
+              <span className="c-step-num">{s.num}</span>
+              <span>{s.text}</span>
             </div>
           ))}
-          <p className="intro-para" style={{ marginTop: "1rem" }}>
-            Clean water access directly supports public health, economic stability, and sustainable development goals.
-          </p>
+        </div>
+        <p className="c-para">
+          This structure improves transparency, accountability, and reporting accuracy across the entire EPR compliance ecosystem.
+        </p>
+
+        <div className="c-divider" />
+
+        {/* Why Important */}
+        <div className="c-section-label">Significance</div>
+        <h2 className="c-h2">Why is the EPRETP Exchange Important?</h2>
+        <div className="c-why-grid">
+          {whyImportant.map((w) => (
+            <div className="c-why-card" key={w.num}>
+              <div className="c-why-card-num">Point {w.num}</div>
+              <div className="c-why-card-title">{w.title}</div>
+              <div className="c-why-card-desc">{w.desc}</div>
+            </div>
+          ))}
         </div>
 
-        {/* Conclusion */}
-        <div className="consequence-block">
-          <div className="section-label">Conclusion</div>
-          <h2 className="section-h2">A Commitment to Human Dignity</h2>
-          <p className="intro-para">
-            The consequences of water pollution on human health are severe, far-reaching, and preventable. From infectious diseases to chronic illnesses and long-term developmental harm, polluted water undermines the very foundation of human well-being.
-          </p>
-          <p className="intro-para">
-            Protecting water resources requires collective action—from policymakers, industries, communities, and individuals. Ensuring clean, safe water is not just an environmental responsibility—it is a commitment to human health, dignity, and a sustainable future.
-          </p>
+        <div className="c-divider" />
+
+        {/* Digital Platforms */}
+        <div className="c-section-label">Digital Transformation</div>
+        <h2 className="c-h2">Role of Digital Platforms in EPR Compliance</h2>
+        <p className="c-para">
+          Digital infrastructure like the EPRETP Exchange is transforming how EPR compliance is managed in India:
+        </p>
+        <div className="c-list-box">
+          <ul>{digitalImpacts.map((d) => <li key={d}>{d}</li>)}</ul>
+        </div>
+        <blockquote className="c-pull-quote">
+          "This reflects a broader shift toward verified environmental outcomes over manual documentation."
+        </blockquote>
+
+        <div className="c-divider" />
+
+        {/* What it Means for Businesses */}
+        <div className="c-section-label">Business Impact</div>
+        <h2 className="c-h2">What Does EPRETP Mean for Businesses?</h2>
+        <p className="c-para">
+          Organizations with EPR obligations must adapt to a more transparent and data-driven compliance ecosystem.
+        </p>
+        <h3 className="c-h3">Key Considerations:</h3>
+        {businessConsiderations.map((s, i) => (
+          <div className="c-solution-item" key={s}>
+            <div className="c-solution-icon">{i + 1}</div>
+            <span>{s}</span>
+          </div>
+        ))}
+        <p className="c-para" style={{ marginTop: "1rem" }}>
+          <strong>Compliance is no longer just operational—it is becoming strategic and measurable.</strong>
+        </p>
+
+        <div className="c-divider" />
+
+        {/* Waste Categories */}
+        <div className="c-section-label">Coverage</div>
+        <h2 className="c-h2">Waste Categories Covered</h2>
+        <p className="c-para">The EPRETP platform covers multiple waste streams under India's EPR framework:</p>
+        <div className="c-waste-tags">
+          {wasteTags.map((t) => <span className="c-waste-tag" key={t}>{t}</span>)}
         </div>
 
-        <div className="section-divider" />
+        <div className="c-divider" />
+
+        {/* FAQ */}
+        <div className="c-section-label">FAQs</div>
+        <h2 className="c-h2">Frequently Asked Questions</h2>
+        <div className="c-faq">
+          {faqs.map((f) => <FaqItem key={f.q} q={f.q} a={f.a} />)}
+        </div>
+
+        <div className="c-divider" />
+
+        {/* Final Thought */}
+        <div className="c-section-label">Conclusion</div>
+        <h2 className="c-h2">Final Thought</h2>
+        <p className="c-para">
+          The EPRETP Exchange is not an overnight transformation—but it represents a clear move towards a more transparent, accountable, and digitally enabled EPR ecosystem in India.
+        </p>
+        <p className="c-para">
+          As regulations evolve, businesses must ask: <em>Is your EPR strategy aligned with the future of compliance?</em>
+        </p>
+
+        <div className="c-divider" />
 
         {/* References */}
-        <div className="section-label">References</div>
-        <h2 className="section-h2">Further Reading</h2>
-        <div className="ref-links">
-          <a href="https://www.who.int/teams/environment-climate-change-and-health/water-sanitation-and-health" className="ref-link">
-            <span className="ref-link-icon">↗</span>
-            WHO — Water, Sanitation and Health
+        <div className="c-section-label">References</div>
+        <h2 className="c-h2">Further Reading</h2>
+        <div className="c-ref-links">
+          <a href="https://cpcb.nic.in" className="c-ref-link">
+            <span>↗</span> CPCB — Central Pollution Control Board, India
           </a>
-          <a href="https://cpcb.nic.in/water-pollution/" className="ref-link">
-            <span className="ref-link-icon">↗</span>
-            CPCB — Water Pollution (India)
+          <a href="https://www.mstcindia.co.in" className="c-ref-link">
+            <span>↗</span> MSTC Limited — Electronic Trading Platform
           </a>
         </div>
 
-        {/* Climeto CTA */}
-        <div className="cta-box">
+        {/* CTA */}
+        <div className="c-cta">
           <h3>♻️ Climeto: Your EPR Compliance Partner</h3>
           <p>
-            As EPR frameworks become more structured and digitally driven, organizations need expert support to stay compliant and efficient. Climeto helps businesses with end-to-end EPR compliance management, access to verified recycler networks, strategic support for EPR credit procurement, and data-driven tracking and CPCB-aligned reporting.
+            As EPR frameworks become more structured and digitally driven, organizations need expert support to stay compliant and efficient.
           </p>
-          {/* <a href="#" className="cta-btn">Connect with Climeto Today</a> */}
+          <ul className="c-cta-list">
+            <li>End-to-end EPR compliance management</li>
+            <li>Access to verified recycler networks</li>
+            <li>Strategic support for EPR credit procurement</li>
+            <li>Data-driven tracking and CPCB-aligned reporting</li>
+          </ul>
+          <p style={{ marginBottom: 0 }}>
+            Looking to simplify your EPR compliance and stay ahead of regulatory changes?{" "}
+            <strong style={{ color: "#fff" }}>Connect with Climeto today.</strong>
+          </p>
         </div>
+
       </main>
 
-      {/* Footer */}
 
     </div>
   );
