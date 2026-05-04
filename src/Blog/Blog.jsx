@@ -253,54 +253,111 @@ const BlogPage = () => {
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: 'linear-gradient(to bottom, #f0fdf4, #ffffff)' }}>
+    <div style={{ minHeight: '100vh', background: '#ffffff' }}>
 
 
+
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+        
+        @keyframes meshMove {
+          0% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(30px, -50px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
+          100% { transform: translate(0, 0) scale(1); }
+        }
+        @keyframes revealUp {
+          from { opacity: 0; transform: translateY(30px) scale(0.95); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .mesh-circle {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(80px);
+          z-index: 0;
+          opacity: 0.4;
+          animation: meshMove 15s ease-in-out infinite alternate;
+        }
+        .hero-title {
+          font-family: 'Playfair Display', serif;
+          letter-spacing: -0.02em;
+        }
+        .hero-container {
+          font-family: 'Outfit', sans-serif;
+          background: #f8fafc;
+          position: relative;
+          overflow: hidden;
+          padding: 12px 20px;
+          border-bottom: 1px solid #e2e8f0;
+        }
+        .glass-card {
+          background: rgba(255, 255, 255, 0.7);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.5);
+          padding: 10px 32px;
+          border-radius: 20px;
+          display: inline-block;
+          box-shadow: 0 4px 15px -2px rgba(0, 0, 0, 0.04);
+          animation: revealUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        .blog-card {
+          background: white;
+          border-radius: 24px;
+          overflow: hidden;
+          border: 1px solid #f1f5f9;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          cursor: pointer;
+          height: '100%';
+          display: flex;
+          flex-direction: column;
+        }
+        .blog-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
+          border-color: #dcfce7;
+        }
+        .card-image-wrap {
+          position: relative;
+          height: 220px;
+          overflow: hidden;
+        }
+        .card-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .blog-card:hover .card-image {
+          transform: scale(1.1);
+        }
+      `}</style>
 
       {/* Hero Section */}
-      <section style={{
-        background: 'linear-gradient(135deg, #059669 0%, #10b981 100%)',
-        padding: '80px 20px',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        {/* Decorative circles */}
-        <div style={{
-          position: 'absolute',
-          top: '-50px',
-          right: '-50px',
-          width: '200px',
-          height: '200px',
-          borderRadius: '50%',
-          background: 'rgba(255, 255, 255, 0.1)',
-          filter: 'blur(40px)'
-        }} />
-        <div style={{
-          position: 'absolute',
-          bottom: '-80px',
-          left: '-80px',
-          width: '300px',
-          height: '300px',
-          borderRadius: '50%',
-          background: 'rgba(255, 255, 255, 0.1)',
-          filter: 'blur(60px)'
-        }} />
+      <section className="hero-container">
+        {/* Mesh Gradient Background */}
+        <div className="mesh-circle" style={{ width: '250px', height: '250px', background: '#dcfce7', top: '-50px', left: '-50px' }} />
+        <div className="mesh-circle" style={{ width: '200px', height: '200px', background: '#f0fdf4', bottom: '-20px', right: '10%', animationDelay: '-5s' }} />
+        <div className="mesh-circle" style={{ width: '180px', height: '180px', background: '#ccfbf1', top: '0', right: '-40px', animationDelay: '-10s' }} />
 
-        <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-          <div style={{ textAlign: 'center', color: 'white' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-              <Leaf size={48} strokeWidth={2} />
-              <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 'bold', margin: 0 }}>
-                EcoVoice Blog
+        <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1, textAlign: 'center' }}>
+          <div className="glass-card">
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '4px' }}>
+              <div style={{ color: '#059669', display: 'flex' }}>
+                <Leaf size={24} />
+              </div>
+              <h1 className="hero-title" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', color: '#064e3b', margin: 0 }}>
+                EcoVoice <span style={{ fontWeight: '400', fontStyle: 'italic', color: '#10b981' }}>Blog</span>
               </h1>
             </div>
             <p style={{
-              fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
-              maxWidth: '800px',
+              fontSize: '0.9rem',
+              color: '#64748b',
+              maxWidth: '500px',
               margin: '0 auto',
-              opacity: 0.95
+              fontWeight: '500'
             }}>
-              Inspiring stories and practical tips for a sustainable future
+              Insights for a sustainable, carbon-conscious future
             </p>
           </div>
         </div>
@@ -318,42 +375,18 @@ const BlogPage = () => {
           {currentBlogs.map((blog) => (
             <article
               key={blog.id}
-              style={{
-                background: 'white',
-                borderRadius: '16px',
-                overflow: 'hidden',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
-                transition: 'all 0.3s ease',
-                cursor: 'pointer',
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-8px)';
-                e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.15)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.08)';
-              }}
+              className="blog-card"
+              onClick={() => window.location.href = blog.route}
             >
               {/* Image */}
-              <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
+              <div className="card-image-wrap">
                 <img
                   src={getImageSrc(blog.image)}
                   alt={blog.title}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    transition: 'transform 0.3s ease'
-                  }}
+                  className="card-image"
                   onError={(e) => {
                     e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="400"%3E%3Crect fill="%2310b981" width="800" height="400"/%3E%3Ctext fill="white" x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-size="24"%3EEcoVoice%3C/text%3E%3C/svg%3E';
                   }}
-                  onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'}
-                  onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
                 />
                 <div style={{
                   position: 'absolute',
@@ -361,16 +394,17 @@ const BlogPage = () => {
                   left: '16px'
                 }}>
                   <span style={{
-                    background: '#10b981',
-                    color: 'white',
+                    background: 'rgba(255, 255, 255, 0.9)',
+                    color: '#064e3b',
                     padding: '6px 14px',
-                    borderRadius: '20px',
-                    fontSize: '13px',
-                    fontWeight: '600',
+                    borderRadius: '12px',
+                    fontSize: '12px',
+                    fontWeight: '700',
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
-                    boxShadow: '0 4px 12px rgba(16, 185, 129, 0.4)'
+                    backdropFilter: 'blur(4px)',
+                    border: '1px solid rgba(255, 255, 255, 0.5)',
                   }}>
                     {getIcon(blog.icon)}
                     {blog.category}
@@ -383,7 +417,8 @@ const BlogPage = () => {
                 <h2 style={{
                   fontSize: '20px',
                   fontWeight: '700',
-                  color: '#111827',
+                  fontFamily: 'Outfit, sans-serif',
+                  color: '#0f172a',
                   marginBottom: '12px',
                   lineHeight: '1.4',
                   display: '-webkit-box',
@@ -546,26 +581,29 @@ const BlogPage = () => {
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
               style={{
-                padding: '10px 14px',
-                borderRadius: '8px',
-                border: '2px solid #e5e7eb',
+                width: '44px',
+                height: '44px',
+                borderRadius: '50%',
+                border: '1px solid #e2e8f0',
                 background: 'white',
                 cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
                 opacity: currentPage === totalPages ? 0.5 : 1,
-                transition: 'all 0.2s ease',
+                transition: 'all 0.3s ease',
                 display: 'flex',
-                alignItems: 'center'
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
               }}
               onMouseEnter={(e) => {
                 if (currentPage !== totalPages) {
                   e.currentTarget.style.borderColor = '#10b981';
-                  e.currentTarget.style.background = '#f0fdf4';
+                  e.currentTarget.style.transform = 'translateX(4px)';
                 }
               }}
               onMouseLeave={(e) => {
                 if (currentPage !== totalPages) {
-                  e.currentTarget.style.borderColor = '#e5e7eb';
-                  e.currentTarget.style.background = 'white';
+                  e.currentTarget.style.borderColor = '#e2e8f0';
+                  e.currentTarget.style.transform = 'translateX(0)';
                 }
               }}
             >
@@ -584,35 +622,75 @@ const BlogPage = () => {
           Showing {indexOfFirstBlog + 1} - {Math.min(indexOfLastBlog, allBlogs.length)} of {allBlogs.length} articles
         </p>
 
-        {/* CTA Section */}
+        {/* Compliance Solutions Section */}
         <div style={{
-          marginTop: '80px',
-          background: 'linear-gradient(135deg, #059669 0%, #10b981 100%)',
-          borderRadius: '20px',
-          padding: '60px 40px',
+          marginTop: '60px',
+          padding: '40px 20px',
           textAlign: 'center',
-          color: 'white',
-          boxShadow: '0 20px 40px rgba(16, 185, 129, 0.3)',
-          position: 'relative',
-          overflow: 'hidden'
+          fontFamily: 'Outfit, sans-serif',
+          borderTop: '1px solid #f1f5f9'
         }}>
-          <div style={{
-            position: 'absolute',
-            top: '-50px',
-            right: '-50px',
-            width: '200px',
-            height: '200px',
-            borderRadius: '50%',
-            background: 'rgba(255, 255, 255, 0.1)',
-            filter: 'blur(40px)'
-          }} />
-          <Leaf size={48} style={{ marginBottom: '20px' }} />
-          <h3 style={{ fontSize: '32px', fontWeight: 'bold', marginBottom: '16px', margin: '0 0 16px 0' }}>
-            Make a Difference Today
-          </h3>
-          <p style={{ fontSize: '18px', opacity: 0.95, maxWidth: '600px', margin: '0 auto' }}>
-            Every small action counts. Start your sustainability journey with us and create lasting impact.
-          </p>
+          <h4 style={{ 
+            fontSize: '13px', 
+            textTransform: 'uppercase', 
+            letterSpacing: '0.15em', 
+            color: '#94a3b8', 
+            marginBottom: '24px',
+            fontWeight: '700'
+          }}>
+            Explore Our Compliance Solutions
+          </h4>
+          <div style={{ 
+            display: 'flex', 
+            flexWrap: 'wrap', 
+            justifyContent: 'center', 
+            gap: '12px',
+            maxWidth: '900px',
+            margin: '0 auto'
+          }}>
+            {[
+              { name: 'Plastic EPR', icon: <Recycle size={16} />, href: '/epr-plastic' },
+              { name: 'Carbon Offsets', icon: <Leaf size={16} />, href: '/carbon-offset' },
+              { name: 'E-Waste Solutions', icon: <Droplet size={16} />, href: '/epr-waste' },
+              { name: 'Sustainability Strategy', icon: <TreePine size={16} />, href: '/sustainability-services' },
+              { name: 'Battery Waste EPR', icon: <ArrowRight size={16} />, href: '/epr-battery' }
+            ].map((service) => (
+              <Link 
+                key={service.name}
+                href={service.href}
+                style={{
+                  padding: '12px 24px',
+                  background: 'white',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '100px',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  color: '#064e3b',
+                  textDecoration: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.02)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-3px)';
+                  e.currentTarget.style.borderColor = '#10b981';
+                  e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(16, 185, 129, 0.1)';
+                  e.currentTarget.style.color = '#10b981';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.borderColor = '#e2e8f0';
+                  e.currentTarget.style.boxShadow = '0 2px 4px rgba(0,0,0,0.02)';
+                  e.currentTarget.style.color = '#064e3b';
+                }}
+              >
+                {service.icon}
+                {service.name}
+              </Link>
+            ))}
+          </div>
         </div>
       </main>
 
