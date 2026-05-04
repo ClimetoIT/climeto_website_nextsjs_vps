@@ -1,13 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "About Us", href: "#" },
-  { label: "Contact Us", href: "#" },
-  { label: "Blog", href: "#" },
-  { label: "Career", href: "#" },
-];
+
 
 const keyFeatures = [
   "Centralized EPR certificate trading platform",
@@ -103,30 +97,7 @@ const styles = `
     color: #1a2a1a;
   }
 
-  /* NAV */
-  .c-nav {
-    background: #fff;
-    border-bottom: 1px solid #d4e8d4;
-    padding: 0 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .c-nav-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-  }
-  .c-logo { display: flex; flex-direction: column; }
-  .c-logo-text { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: #0d3d20; line-height: 1; }
-  .c-logo-sub { font-size: 0.65rem; color: #5a9a6a; letter-spacing: 1px; text-transform: uppercase; }
-  .c-nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; margin: 0; padding: 0; }
-  .c-nav-links a { font-size: 0.82rem; color: #3a5a3a; text-decoration: none; padding: 6px 12px; border-radius: 6px; transition: background 0.15s; }
-  .c-nav-links a:hover { background: #f0f8f2; }
-  .c-services-btn { font-size: 0.82rem; color: #1a6b3c; background: #e0f4e8; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500; }
+
 
   /* HERO */
   .c-hero {
@@ -324,24 +295,7 @@ const styles = `
   }
 `;
 
-function Navbar() {
-  return (
-    <nav className="c-nav">
-      <div className="c-nav-inner">
-        <div className="c-logo">
-          <span className="c-logo-text">Climeto</span>
-          <span className="c-logo-sub">Sustainable Services</span>
-        </div>
-        <ul className="c-nav-links">
-          {navLinks.map((l) => (
-            <li key={l.label}><a href={l.href}>{l.label}</a></li>
-          ))}
-          <li><button className="c-services-btn">Services ▾</button></li>
-        </ul>
-      </div>
-    </nav>
-  );
-}
+
 
 function Hero() {
   return (
@@ -401,7 +355,7 @@ export default function ClimetoBlog() {
   return (
     <div className="climeto-root">
       <style>{styles}</style>
-      <Navbar />
+
       <Hero />
 
       <main className="c-main">

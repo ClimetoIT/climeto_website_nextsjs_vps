@@ -666,29 +666,6 @@ const Navbar = () => {
             }}>
               Career
             </Link>
-
-            <Link href="/login" onClick={closeMobileMenu} style={{
-              textDecoration: 'none',
-              color: 'white',
-              fontSize: '15px',
-              fontWeight: '600',
-              padding: '8px 20px',
-              borderRadius: '8px',
-              backgroundColor: '#0d5c3a',
-              transition: 'all 0.3s ease',
-              whiteSpace: 'nowrap',
-              border: '2px solid #0d5c3a'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.backgroundColor = '#22c773';
-              e.target.style.borderColor = '#22c773';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.backgroundColor = '#0d5c3a';
-              e.target.style.borderColor = '#0d5c3a';
-            }}>
-              Login
-            </Link>
           </nav>
         </div>
       </header>

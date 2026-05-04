@@ -9,7 +9,6 @@ import {
     CreditCard,
     LifeBuoy,
     Download,
-    LogOut,
     Menu,
     X,
     Leaf,
@@ -21,12 +20,7 @@ export default function DashboardLayout({ children }) {
     const pathname = usePathname();
     const router = useRouter();
 
-    const handleSignOut = () => {
-        if (confirm("Are you sure you want to sign out?")) {
-            // Clear any session markers here if needed
-            router.push('/login');
-        }
-    };
+
 
     const menuItems = [
         { name: 'Overview', icon: LayoutDashboard, path: '/dashboard' },
@@ -77,15 +71,7 @@ export default function DashboardLayout({ children }) {
                     })}
                 </nav>
 
-                <div className="absolute bottom-8 left-6 right-6">
-                    <button
-                        onClick={handleSignOut}
-                        className="flex items-center gap-3 px-4 py-3 w-full text-emerald-100/70 hover:text-white transition-colors group"
-                    >
-                        <LogOut className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-                        <span className="font-bold tracking-wide">Sign Out</span>
-                    </button>
-                </div>
+
             </aside>
 
             {/* MAIN CONTENT AREA */}
