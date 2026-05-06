@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Calendar, Clock, ArrowRight, Leaf, Droplet, TreePine, Recycle } from 'lucide-react';
 import Link from "next/link";
 import blogImg from "../assets/images/blog.png";
@@ -230,6 +230,41 @@ const allBlogs = [
 
 const BlogPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [dynamicBlogs, setDynamicBlogs] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await fetch('/api/blogs?status=published');
+        const data = await response.json();
+        if (data.blogs) {
+          const formattedBlogs = data.blogs.map(blog => ({
+            id: blog._id,
+            title: blog.title,
+            excerpt: blog.excerpt,
+            image: blog.image,
+            category: blog.category,
+            date: new Date(blog.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+            readTime: "5 min read",
+            author: blog.author,
+            icon: blog.category === 'EPR' ? 'recycle' : 
+                  blog.category === 'Sustainability' ? 'tree' : 
+                  blog.category === 'Carbon Market' ? 'droplet' : 'leaf',
+            route: `/blog/${blog.slug}`
+          }));
+          setDynamicBlogs(formattedBlogs);
+        }
+      } catch (error) {
+        console.error("Failed to fetch blogs:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchBlogs();
+  }, []);
+
+  const combinedBlogs = [...dynamicBlogs, ...allBlogs];
   const blogsPerPage = 6;
 
   const getIcon = (iconName) => {
@@ -244,8 +279,8 @@ const BlogPage = () => {
 
   const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
-  const currentBlogs = allBlogs.slice(indexOfFirstBlog, indexOfLastBlog);
-  const totalPages = Math.ceil(allBlogs.length / blogsPerPage);
+  const currentBlogs = combinedBlogs.slice(indexOfFirstBlog, indexOfLastBlog);
+  const totalPages = Math.ceil(combinedBlogs.length / blogsPerPage);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -365,6 +400,13 @@ const BlogPage = () => {
 
       {/* Main Content */}
       <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 20px' }}>
+        {isLoading && (
+          <div style={{ textAlign: 'center', padding: '40px', color: '#10b981' }}>
+            <div className="animate-spin inline-block w-8 h-8 border-4 border-current border-t-transparent rounded-full mb-4"></div>
+            <p>Loading the latest insights...</p>
+          </div>
+        )}
+        
         {/* Blog Grid */}
         <div style={{
           display: 'grid',
@@ -619,7 +661,7 @@ const BlogPage = () => {
           color: '#6b7280',
           fontSize: '15px'
         }}>
-          Showing {indexOfFirstBlog + 1} - {Math.min(indexOfLastBlog, allBlogs.length)} of {allBlogs.length} articles
+          Showing {indexOfFirstBlog + 1} - {Math.min(indexOfLastBlog, combinedBlogs.length)} of {combinedBlogs.length} articles
         </p>
 
         {/* Compliance Solutions Section */}
