@@ -8,6 +8,8 @@ import { notFound } from "next/navigation";
 import ShareButton from "../../../src/Blog/ShareButton";
 import BlogArticleContent from "../../../src/Blog/BlogArticleContent";
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({ params }) {
     const { slug } = params;
     await connectMongoDB();
