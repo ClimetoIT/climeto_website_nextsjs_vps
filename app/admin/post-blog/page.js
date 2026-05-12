@@ -8,9 +8,11 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 export default function PostBlogAdmin() {
     const [formData, setFormData] = useState({
         title: "", slug: "", excerpt: "", author: "", category: "", status: "published", publishedAt: new Date().toISOString().slice(0, 16),
-        relatedLinks: []
+        relatedLinks: [],
+        keyPoints: []
     });
     const [newLink, setNewLink] = useState({ title: "", url: "" });
+    const [newPoint, setNewPoint] = useState("");
 
     const [content, setContent] = useState("");
     const [file, setFile] = useState(null);
@@ -107,6 +109,23 @@ export default function PostBlogAdmin() {
         }));
     };
 
+    const addPoint = () => {
+        if (newPoint.trim()) {
+            setFormData(prev => ({
+                ...prev,
+                keyPoints: [...(prev.keyPoints || []), newPoint.trim()]
+            }));
+            setNewPoint("");
+        }
+    };
+
+    const removePoint = (index) => {
+        setFormData(prev => ({
+            ...prev,
+            keyPoints: prev.keyPoints.filter((_, i) => i !== index)
+        }));
+    };
+
     const handleChange = (e) => {
         if (e.target.name === "title") {
             setFormData({
@@ -132,7 +151,8 @@ export default function PostBlogAdmin() {
             category: blog.category,
             status: blog.status || "published",
             publishedAt: blog.publishedAt ? new Date(blog.publishedAt).toISOString().slice(0, 16) : new Date().toISOString().slice(0, 16),
-            relatedLinks: blog.relatedLinks || []
+            relatedLinks: blog.relatedLinks || [],
+            keyPoints: blog.keyPoints || []
         });
         setPublishType(blog.publishedAt && new Date(blog.publishedAt) > new Date() ? "schedule" : "now");
         setContent(blog.content);
@@ -149,6 +169,7 @@ export default function PostBlogAdmin() {
         setFile(null);
         setExistingImageUrl("");
         setNewLink({ title: "", url: "" });
+        setNewPoint("");
     };
 
     const handleSubmit = async (e) => {
@@ -362,6 +383,46 @@ export default function PostBlogAdmin() {
                                     type="button" 
                                     onClick={() => removeLink(index)}
                                     className="text-red-500 hover:text-red-700 font-bold px-2"
+                                >
+                                    ✕
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Key Points Section */}
+                <div className="p-6 bg-blue-50 rounded-xl border border-blue-200 space-y-4">
+                    <h3 className="text-lg font-bold text-blue-800 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                        Key Highlights / Points (Boxes)
+                    </h3>
+                    <div className="flex gap-2">
+                        <input 
+                            type="text" 
+                            placeholder="Add a key highlight or takeaway..." 
+                            value={newPoint}
+                            onChange={(e) => setNewPoint(e.target.value)}
+                            onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addPoint())}
+                            className="p-2 border rounded flex-1"
+                        />
+                        <button 
+                            type="button" 
+                            onClick={addPoint}
+                            className="bg-blue-600 text-white px-4 rounded font-bold hover:bg-blue-700"
+                        >
+                            Add Point
+                        </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-2">
+                        {formData.keyPoints?.map((point, index) => (
+                            <div key={index} className="flex justify-between items-center bg-white p-3 rounded-lg border border-blue-100 shadow-sm">
+                                <span className="text-sm font-medium text-slate-700">{point}</span>
+                                <button 
+                                    type="button" 
+                                    onClick={() => removePoint(index)}
+                                    className="text-red-500 hover:text-red-700 font-bold px-2 ml-4"
                                 >
                                     ✕
                                 </button>

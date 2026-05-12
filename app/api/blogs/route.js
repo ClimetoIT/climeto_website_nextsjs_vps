@@ -8,13 +8,13 @@ import { NextResponse } from "next/server";
 export async function POST(request) {
   try {
 
-    const { title, slug, excerpt, content, author, category, image, status, publishedAt, relatedLinks } = await request.json();
+    const { title, slug, excerpt, content, author, category, image, status, publishedAt, relatedLinks, keyPoints } = await request.json();
 
 
     await connectMongoDB();
 
 
-    await Blog.create({ title, slug, excerpt, content, author, category, image, status: status || "published", publishedAt: publishedAt || new Date(), relatedLinks });
+    await Blog.create({ title, slug, excerpt, content, author, category, image, status: status || "published", publishedAt: publishedAt || new Date(), relatedLinks, keyPoints });
 
 
     return NextResponse.json({ message: "Blog created" }, { status: 201 });
@@ -75,14 +75,14 @@ export async function DELETE(request) {
 
 export async function PUT(request) {
   try {
-    const { id, title, slug, excerpt, content, author, category, image, status, publishedAt, relatedLinks } = await request.json();
+    const { id, title, slug, excerpt, content, author, category, image, status, publishedAt, relatedLinks, keyPoints } = await request.json();
 
     if (!id) {
       return NextResponse.json({ message: "ID is required" }, { status: 400 });
     }
 
     await connectMongoDB();
-    await Blog.findByIdAndUpdate(id, { title, slug, excerpt, content, author, category, image, status, publishedAt, relatedLinks });
+    await Blog.findByIdAndUpdate(id, { title, slug, excerpt, content, author, category, image, status, publishedAt, relatedLinks, keyPoints });
 
     return NextResponse.json({ message: "Blog updated" }, { status: 200 });
   } catch (error) {

@@ -6,6 +6,7 @@ import { Leaf, Calendar, ArrowLeft, Clock, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ShareButton from "../../../src/Blog/ShareButton";
+import BlogArticleContent from "../../../src/Blog/BlogArticleContent";
 
 export async function generateMetadata({ params }) {
     const { slug } = params;
@@ -109,9 +110,9 @@ export default async function DynamicBlogPage({ params }) {
                 </div>
             </nav>
 
-            <article className="relative z-10 max-w-4xl mx-auto px-6 py-12 md:py-20">
+            <article className="relative z-10 max-w-6xl mx-auto px-6 py-12 md:py-20">
                 {/* Header Content */}
-                <header className="mb-12">
+                <header className="mb-12 max-w-4xl mx-auto">
                     <div className="inline-flex items-center gap-2 px-3 py-1 bg-green-50 text-green-700 rounded-full text-sm font-bold mb-6">
                         <Leaf size={14} />
                         {blog.category}
@@ -123,7 +124,7 @@ export default async function DynamicBlogPage({ params }) {
                     <div className="flex flex-wrap items-center gap-6 text-slate-500 font-medium">
                         <div className="flex items-center gap-3">
                             <div className="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center text-white font-bold shadow-lg shadow-green-100">
-                                {blog.author.charAt(0)}
+                                {blog.author?.charAt(0) || "C"}
                             </div>
                             <span className="text-slate-900 font-bold">{blog.author}</span>
                         </div>
@@ -133,13 +134,19 @@ export default async function DynamicBlogPage({ params }) {
                         </div>
                         <div className="flex items-center gap-2">
                             <Clock size={18} className="text-green-600" />
-                            <span>5 min read</span>
+                            <span>
+                                {(() => {
+                                    const plainText = blog.content?.replace(/<[^>]*>/g, '') || "";
+                                    const words = plainText.trim().split(/\s+/).length;
+                                    return Math.ceil(words / 200) || 1;
+                                })()} min read
+                            </span>
                         </div>
                     </div>
                 </header>
 
                 {/* Featured Image */}
-                <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl mb-16">
+                <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl mb-16 max-w-5xl mx-auto">
                     <img
                         src={blog.image}
                         alt={blog.title}
@@ -149,22 +156,15 @@ export default async function DynamicBlogPage({ params }) {
                 </div>
 
                 {/* Article Content */}
-                <div className="max-w-3xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     {/* Excerpt/Intro */}
-                    <div className="text-xl md:text-2xl font-semibold text-slate-800 mb-12 leading-relaxed border-l-4 border-green-500 pl-8 italic">
+                    <div className="max-w-3xl mx-auto text-xl md:text-2xl font-semibold text-slate-800 mb-12 leading-relaxed border-l-4 border-green-500 pl-8 italic">
                         {blog.excerpt}
                     </div>
 
-                    {/* Main Body */}
-                    <div 
-                        className="prose prose-xl prose-slate max-w-none 
-                            prose-headings:font-black prose-headings:text-slate-900
-                            prose-p:text-slate-700 prose-p:leading-relaxed
-                            prose-a:text-green-600 prose-a:no-underline hover:prose-a:underline
-                            prose-img:rounded-3xl prose-blockquote:border-green-500
-                            prose-strong:text-slate-900"
-                        dangerouslySetInnerHTML={{ __html: blog.content }}
-                    />
+                    {/* Main Article Body with Interactive Features */}
+                    <BlogArticleContent blog={JSON.parse(JSON.stringify(blog.toObject ? blog.toObject() : blog))} />
+
 
                     {/* Interlinking Section */}
                     {blog.relatedLinks && blog.relatedLinks.length > 0 && (

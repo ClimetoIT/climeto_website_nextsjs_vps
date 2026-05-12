@@ -16,7 +16,8 @@ const blogSchema = new Schema(
         title: { type: String },
         url: { type: String },
       }
-    ], 
+    ],
+    keyPoints: [{ type: String }],
   },
   { timestamps: true } 
 );
