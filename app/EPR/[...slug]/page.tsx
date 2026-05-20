@@ -44,7 +44,6 @@ export async function generateStaticParams() {
 
 // 2. Helper to resolve data
 function getSEOData(slug: string[] | undefined): { data: CityData | null; city: string; state: string } {
-    console.log('[DEBUG] getSEOData slug:', slug);
     if (!slug || slug.length === 0) return { data: null, city: "", state: "" };
 
     const findKey = (obj: any, target: string) =>
@@ -69,7 +68,6 @@ function getSEOData(slug: string[] | undefined): { data: CityData | null; city: 
         } else {
             for (const stKey of Object.keys(citySEOData)) {
                 const potentialCityKey = findKey(citySEOData[stKey], segment);
-                console.log(`[DEBUG] Checking state ${stKey} for city ${segment}:`, potentialCityKey);
                 if (potentialCityKey) {
                     matchedStateKey = stKey;
                     matchedCityKey = potentialCityKey;
@@ -78,8 +76,6 @@ function getSEOData(slug: string[] | undefined): { data: CityData | null; city: 
             }
         }
     }
-
-    console.log('[DEBUG] Result:', { matchedStateKey, matchedCityKey, isStatePage });
 
     let cityData: CityData | null = null;
     let cityDisplay = "";
@@ -97,12 +93,32 @@ function getSEOData(slug: string[] | undefined): { data: CityData | null; city: 
 
 // 3. Generate Metadata
 export async function generateMetadata({ params }: { params: { slug?: string[] } }): Promise<Metadata> {
-    const { data } = getSEOData(params.slug);
+    const { data, city, state } = getSEOData(params.slug);
     if (!data) return { title: "EPR Services | Climeto" };
+
+    const preferredCanonical =
+        state && city
+            ? `/EPR/${state.toLowerCase()}/${city.toLowerCase()}`
+            : state
+                ? `/EPR/${state.toLowerCase()}`
+                : "/EPR";
 
     return {
         title: data.title,
         description: data.description,
+        alternates: {
+            canonical: preferredCanonical,
+        },
+        openGraph: {
+            title: data.title,
+            description: data.description,
+            url: preferredCanonical,
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: data.title,
+            description: data.description,
+        },
     };
 }
 

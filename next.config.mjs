@@ -5,11 +5,12 @@ const nextConfig = {
     unoptimized: true, // Required for static export
   },
 
-  async rewrites() {
+  async redirects() {
     return [
       {
-        source: '/EPR/:path*.html', // Jo bhi .html URL aayega
-        destination: '/EPR/:path*', // Actual page folder
+        source: '/EPR/:path*.html', // Old .html URLs from GSC
+        destination: '/EPR/:path*', // New clean URLs
+        permanent: true, // Tells Google this is a permanent 301/308 redirect, fixing the duplicate error!
       },
     ];
   },

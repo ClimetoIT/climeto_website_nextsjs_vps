@@ -4,9 +4,13 @@ import Footer from "../src/footer/footer";
 import ScrollToTop from "../src/ScrollToTop";
 
 export const metadata = {
-  title: "Climeto Sustainable Services",
+  metadataBase: new URL("https://climeto.com"),
+  title: {
+    default: "Climeto Sustainable Services",
+    template: "%s | Climeto",
+  },
   description: "Climeto Sustainable Services",
-    icons: {
+  icons: {
     icon: "/climetotitle.png",
   },
 };

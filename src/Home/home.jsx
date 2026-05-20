@@ -1,3 +1,5 @@
+ "use client";
+
 import "./Home.css";
 import BrandsTrust from "../Home/BrandsTrust";
 import GoogleReviewsCarousel  from "./GoogleReviewsCarousel";
