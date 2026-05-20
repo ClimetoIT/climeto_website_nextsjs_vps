@@ -172,7 +172,7 @@ export default function GoogleReviewsCarousel() {
 
   return (
     <div style={{
-      minHeight: isMobile ? '50vh' : '60vh',
+      minHeight: '500px', /* FIXED: Consistent min-height prevents the massive CLS layout shift on load! */
       backgroundColor: '#f3f4f6',
       display: 'flex',
       alignItems: 'center',
