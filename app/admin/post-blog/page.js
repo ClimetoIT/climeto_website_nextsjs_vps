@@ -9,10 +9,12 @@ export default function PostBlogAdmin() {
     const [formData, setFormData] = useState({
         title: "", slug: "", excerpt: "", author: "", category: "", status: "published", publishedAt: new Date().toISOString().slice(0, 16),
         relatedLinks: [],
-        keyPoints: []
+        keyPoints: [],
+        faqs: []
     });
     const [newLink, setNewLink] = useState({ title: "", url: "" });
     const [newPoint, setNewPoint] = useState("");
+    const [newFaq, setNewFaq] = useState({ question: "", answer: "" });
 
     const [content, setContent] = useState("");
     const [file, setFile] = useState(null);
@@ -126,6 +128,23 @@ export default function PostBlogAdmin() {
         }));
     };
 
+    const addFaq = () => {
+        if (newFaq.question.trim() && newFaq.answer.trim()) {
+            setFormData(prev => ({
+                ...prev,
+                faqs: [...(prev.faqs || []), { question: newFaq.question.trim(), answer: newFaq.answer.trim() }]
+            }));
+            setNewFaq({ question: "", answer: "" });
+        }
+    };
+
+    const removeFaq = (index) => {
+        setFormData(prev => ({
+            ...prev,
+            faqs: prev.faqs.filter((_, i) => i !== index)
+        }));
+    };
+
     const handleChange = (e) => {
         if (e.target.name === "title") {
             setFormData({
@@ -152,7 +171,8 @@ export default function PostBlogAdmin() {
             status: blog.status || "published",
             publishedAt: blog.publishedAt ? new Date(blog.publishedAt).toISOString().slice(0, 16) : new Date().toISOString().slice(0, 16),
             relatedLinks: blog.relatedLinks || [],
-            keyPoints: blog.keyPoints || []
+            keyPoints: blog.keyPoints || [],
+            faqs: blog.faqs || []
         });
         setPublishType(blog.publishedAt && new Date(blog.publishedAt) > new Date() ? "schedule" : "now");
         setContent(blog.content);
@@ -163,24 +183,31 @@ export default function PostBlogAdmin() {
     const cancelEdit = () => {
         setIsEditing(false);
         setEditId(null);
-        setFormData({ title: "", slug: "", excerpt: "", author: "", category: "", status: "published", publishedAt: new Date().toISOString().slice(0, 16), relatedLinks: [] });
+        setFormData({ title: "", slug: "", excerpt: "", author: "", category: "", status: "published", publishedAt: new Date().toISOString().slice(0, 16), relatedLinks: [], keyPoints: [], faqs: [] });
         setPublishType("now");
         setContent("");
         setFile(null);
         setExistingImageUrl("");
         setNewLink({ title: "", url: "" });
         setNewPoint("");
+        setNewFaq({ question: "", answer: "" });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setStatus("Uploading Image to Cloudinary...");
-
         
+        const cleanContent = content.trim();
+        if (!cleanContent || cleanContent === "<p><br></p>" || cleanContent === "<p></p>") {
+            alert("Please write some content in the Blog Body!");
+            return;
+        }
+
         if (!file && !isEditing) {
             alert("Please upload a cover image!");
             return;
         }
+
+        setStatus("Uploading Image to Cloudinary...");
 
         try {
             let imageUrl = existingImageUrl;
@@ -423,6 +450,54 @@ export default function PostBlogAdmin() {
                                     type="button" 
                                     onClick={() => removePoint(index)}
                                     className="text-red-500 hover:text-red-700 font-bold px-2 ml-4"
+                                >
+                                    ✕
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* FAQs Section */}
+                <div className="p-6 bg-purple-50 rounded-xl border border-purple-200 space-y-4">
+                    <h3 className="text-lg font-bold text-purple-800 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        Frequently Asked Questions (FAQs)
+                    </h3>
+                    <div className="grid grid-cols-1 gap-2">
+                        <input 
+                            type="text" 
+                            placeholder="Question" 
+                            value={newFaq.question}
+                            onChange={(e) => setNewFaq({ ...newFaq, question: e.target.value })}
+                            className="p-2 border rounded"
+                        />
+                        <textarea 
+                            placeholder="Answer" 
+                            value={newFaq.answer}
+                            onChange={(e) => setNewFaq({ ...newFaq, answer: e.target.value })}
+                            className="p-2 border rounded h-20"
+                        />
+                        <button 
+                            type="button" 
+                            onClick={addFaq}
+                            className="bg-purple-600 text-white px-4 py-2 rounded font-bold hover:bg-purple-700 justify-self-start"
+                        >
+                            Add FAQ
+                        </button>
+                    </div>
+
+                    <div className="space-y-2 mt-4">
+                        {formData.faqs?.map((faq, index) => (
+                            <div key={index} className="flex justify-between items-start bg-white p-3 rounded-lg border border-purple-100 shadow-sm">
+                                <div className="flex-1 mr-4">
+                                    <h4 className="font-bold text-gray-800 mb-1">Q: {faq.question}</h4>
+                                    <p className="text-sm text-gray-600">A: {faq.answer}</p>
+                                </div>
+                                <button 
+                                    type="button" 
+                                    onClick={() => removeFaq(index)}
+                                    className="text-red-500 hover:text-red-700 font-bold px-2 pt-1"
                                 >
                                     ✕
                                 </button>

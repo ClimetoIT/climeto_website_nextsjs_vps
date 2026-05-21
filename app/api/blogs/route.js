@@ -8,18 +8,19 @@ import { NextResponse } from "next/server";
 export async function POST(request) {
   try {
 
-    const { title, slug, excerpt, content, author, category, image, status, publishedAt, relatedLinks, keyPoints } = await request.json();
+    const { title, slug, excerpt, content, author, category, image, status, publishedAt, relatedLinks, keyPoints, faqs } = await request.json();
 
 
     await connectMongoDB();
 
 
-    await Blog.create({ title, slug, excerpt, content, author, category, image, status: status || "published", publishedAt: publishedAt || new Date(), relatedLinks, keyPoints });
+    await Blog.create({ title, slug, excerpt, content, author, category, image, status: status || "published", publishedAt: publishedAt || new Date(), relatedLinks, keyPoints, faqs });
 
 
     return NextResponse.json({ message: "Blog created" }, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ message: "Blog Failed", error }, { status: 500 });
+    console.error("POST /api/blogs error:", error);
+    return NextResponse.json({ message: "Blog Failed", error: error.message || error }, { status: 500 });
   }
 }
 
@@ -75,17 +76,18 @@ export async function DELETE(request) {
 
 export async function PUT(request) {
   try {
-    const { id, title, slug, excerpt, content, author, category, image, status, publishedAt, relatedLinks, keyPoints } = await request.json();
+    const { id, title, slug, excerpt, content, author, category, image, status, publishedAt, relatedLinks, keyPoints, faqs } = await request.json();
 
     if (!id) {
       return NextResponse.json({ message: "ID is required" }, { status: 400 });
     }
 
     await connectMongoDB();
-    await Blog.findByIdAndUpdate(id, { title, slug, excerpt, content, author, category, image, status, publishedAt, relatedLinks, keyPoints });
+    await Blog.findByIdAndUpdate(id, { title, slug, excerpt, content, author, category, image, status, publishedAt, relatedLinks, keyPoints, faqs });
 
     return NextResponse.json({ message: "Blog updated" }, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ message: "Failed to update blog", error }, { status: 500 });
+    console.error("PUT /api/blogs error:", error);
+    return NextResponse.json({ message: "Failed to update blog", error: error.message || error }, { status: 500 });
   }
 }

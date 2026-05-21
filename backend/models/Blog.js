@@ -18,6 +18,12 @@ const blogSchema = new Schema(
       }
     ],
     keyPoints: [{ type: String }],
+    faqs: [
+      {
+        question: { type: String },
+        answer: { type: String },
+      }
+    ],
   },
   { timestamps: true } 
 );

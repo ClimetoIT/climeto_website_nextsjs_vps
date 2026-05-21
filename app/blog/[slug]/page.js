@@ -7,6 +7,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ShareButton from "../../../src/Blog/ShareButton";
 import BlogArticleContent from "../../../src/Blog/BlogArticleContent";
+import FaqAccordion from "../../../src/Blog/FaqAccordion";
 
 export const dynamic = 'force-dynamic';
 
@@ -79,6 +80,27 @@ export default async function DynamicBlogPage({ params }) {
                     })
                 }}
             />
+
+            {/* FAQ Structured Data for SEO */}
+            {blog.faqs && blog.faqs.length > 0 && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "FAQPage",
+                            "mainEntity": blog.faqs.map(faq => ({
+                                "@type": "Question",
+                                "name": faq.question,
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": faq.answer
+                                }
+                            }))
+                        })
+                    }}
+                />
+            )}
 
             {/* Background Watermarks */}
             <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.03] flex items-center justify-center">
@@ -191,6 +213,17 @@ export default async function DynamicBlogPage({ params }) {
                                     </Link>
                                 ))}
                             </div>
+                        </div>
+                    )}
+
+                    {/* FAQ Section */}
+                    {blog.faqs && blog.faqs.length > 0 && (
+                        <div className="mt-16 p-8 bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl border border-green-100">
+                            <h3 className="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+                                <span className="w-10 h-10 rounded-xl bg-green-600 flex items-center justify-center text-white text-lg">?</span>
+                                Frequently Asked Questions
+                            </h3>
+                            <FaqAccordion faqs={JSON.parse(JSON.stringify(blog.faqs))} />
                         </div>
                     )}
                 </div>
