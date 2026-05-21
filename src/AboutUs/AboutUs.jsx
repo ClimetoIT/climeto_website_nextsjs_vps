@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { Leaf, Target, Eye, Heart, Users, Award, TrendingUp, Shield, BookOpen, Zap, Linkedin, ArrowDown, Sparkles, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
 import Climetobanner1 from "../assets/images/Climetobanner1.jpg";
 import a2 from "../assets/images/a2.jpg";
@@ -109,7 +110,7 @@ export default function ClimetoAboutPage() {
   return (
     <div className="bg-gradient-to-b from-slate-50 via-white to-green-50 overflow-x-hidden">
       {/* Hero Section */}
-      <div className="relative h-screen flex items-center justify-center overflow-hidden">
+      <div className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-green-600 via-teal-600 to-blue-600"></div>
         <div className="absolute inset-0 opacity-20">
           {[...Array(15)].map((_, i) => (
@@ -171,14 +172,17 @@ export default function ClimetoAboutPage() {
 {/* Carousel Section */}
 <div className="relative w-full h-[500px] overflow-hidden rounded-xl">
 {carouselItems[currentImageIndex].type === "image" ? (
-<img
-src={imgSrc(carouselItems[currentImageIndex].src)}
-className="w-full h-full object-cover transition-all duration-700"
+<Image
+src={carouselItems[currentImageIndex].src}
+className="object-cover transition-all duration-700"
 alt="carousel"
+fill
+priority
+sizes="(max-width: 768px) 100vw, 50vw"
 />
 ) : (
 <video
-src={imgSrc(carouselItems[currentImageIndex].src)}
+src={carouselItems[currentImageIndex].src}
 className="w-full h-full object-cover rounded-xl"
 autoPlay
 muted
@@ -501,8 +505,8 @@ className="absolute top-1/2 right-5 transform -translate-y-1/2 bg-black/40 text-
             {/* Leader Image - Changed to object-top for better head visibility */}
           
           
-          <img 
-            src={imgSrc(leader.src)}
+          <Image 
+                src={leader.src}
                 alt={leader.name}
                 className="w-full h-[600px] object-contain bg-gradient-to-br from-green-50 to-teal-50 transition-transform duration-700 group-hover:scale-105"
                 onError={(e) => {
@@ -556,10 +560,11 @@ className="absolute top-1/2 right-5 transform -translate-y-1/2 bg-black/40 text-
           {/* Featured Large Image */}
           <div className={`mb-12 transition-all duration-1000 ${isVisible['gallery'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
             <div className="relative group rounded-3xl overflow-hidden shadow-2xl h-[500px]">
-              <img 
-                src={imgSrc(galleryImages[0].src)} 
-                alt={galleryImages[0].alt}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              <Image 
+                src={galleryImages[0].src} 
+                alt={galleryImages[0].alt || "Gallery image"}
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                fill
                 onError={(e) => {
                   e.target.style.display = 'none';
                   e.target.nextElementSibling.style.display = 'flex';
@@ -589,10 +594,11 @@ className="absolute top-1/2 right-5 transform -translate-y-1/2 bg-black/40 text-
                 key={idx}
                 className="group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 h-80"
               >
-                <img 
-                  src={imgSrc(image.src)} 
-                  alt={image.alt}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                <Image 
+                  src={image.src} 
+                  alt={image.alt || "Gallery image"}
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  fill
                   onError={(e) => {
                     e.target.style.display = 'none';
                     e.target.nextElementSibling.style.display = 'flex';
@@ -621,10 +627,11 @@ className="absolute top-1/2 right-5 transform -translate-y-1/2 bg-black/40 text-
                   transitionDelay: `${idx * 100}ms`
                 }}
               >
-                <img 
-                  src={imgSrc(image.src)} 
-                  alt={image.alt}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                <Image 
+                  src={image.src} 
+                  alt={image.alt || "Gallery image"}
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  fill
                   onError={(e) => {
                     e.target.style.display = 'none';
                     e.target.nextElementSibling.style.display = 'flex';
@@ -647,10 +654,11 @@ className="absolute top-1/2 right-5 transform -translate-y-1/2 bg-black/40 text-
           {galleryImages[7] && (
             <div className={`mt-12 transition-all duration-1000 delay-600 ${isVisible['gallery'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
               <div className="relative group rounded-3xl overflow-hidden shadow-2xl h-96">
-                <img 
-                  src={imgSrc(galleryImages[7].src)} 
-                  alt={galleryImages[7].alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                <Image 
+                  src={galleryImages[7].src} 
+                  alt={galleryImages[7].alt || "Gallery image"}
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  fill
                   onError={(e) => {
                     e.target.style.display = 'none';
                     e.target.nextElementSibling.style.display = 'flex';
