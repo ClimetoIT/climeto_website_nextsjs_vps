@@ -10,9 +10,6 @@ export const metadata = {
     template: "%s | Climeto",
   },
   description: "Climeto Sustainable Services",
-  icons: {
-    icon: "/climetotitle.png",
-  },
 };
 
 export default function RootLayout({ children }) {
