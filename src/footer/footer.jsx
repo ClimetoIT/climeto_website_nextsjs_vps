@@ -55,7 +55,11 @@ export default function Footer() {
             </p>
             <a href="mailto:info@climeto.com" className="contact-link">info@climeto.com</a>
             <br />
-            <a href="tel:+919039946410" className="contact-link">+91-9039946410</a>
+            <div>
+              <a href="tel:+917225018974" className="contact-link">HR: +91-7225018974</a>
+              <br />
+              <a href="tel:+919039946410" className="contact-link">Business: +91-9039946410</a>
+            </div>
           </div>
         </div>
 

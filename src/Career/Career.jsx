@@ -170,34 +170,9 @@ export default function ClimetoCareers() {
   });
 
   const jobs = [
-    {
-      title: "Carbon Project Specialist",
-      location: "Indore ",
-      type: "Full-time",
-      department: "Carbon Project Development",
-      description: "Oversee the complete lifecycle of carbon offset initiatives across diverse sectors, ensuring technical precision and successful registry approval.",
-      responsibilities: [
-        { category: "Carbon Project Development", points: ["Lead the full-cycle development of carbon credits from conceptualization to issuance across multiple industries", "Methodology applicability assessment and feasibility analysis & more."] },
-        { category: "Additionality Assessment", points: ["Investment analysis (IRR and sensitivity analysis)", "Barrier analysis", "Common practice analysis", "Regulatory surplus and prior consideration assessment"] },
-        { category: "Carbon Accounting", points: ["Baseline emissions (BEy) calculation", "Project emissions (PEy) calculation", "Leakage emissions (LEy) identification", "Net emission reductions (ERy) calculation", "Application of emission factors (IPCC, grid emission factors)"] },
-        { category: "MRV (Monitoring, Reporting & Verification)", points: ["Monitoring plan design and parameter identification", "Sampling plan development and monitoring report preparation and more."] },
-        { category: "Technical Documentation", points: ["Preparation of PDDs, Monitoring Reports, Emission reduction sheets", "Additionality reports and leakage assessments", "Sampling plans and GIS/KML project boundaries", "Coordination with VVBs and more."] }
-      ],
-      eligibility: [
-        "Registry Experience (minimum three mandatory): Verra, Gold Standard, CDM, Article 6.4, Global Carbon Council, Isometric, Puro.earth, Cercarbono & others.",
-        "4–8 years in carbon project development",
-        "Successful submission of atleast 10+ carbon projects",
-        "Exposure to AFOLU and Non-AFOLU sectors",
-        "Other skills: Methodology applicability assessment, MRV framework development, GHG inventory preparation (IPCC 2006 & 2019 guidelines)",
-        "Software & Tools: QGIS / ArcGIS, remote sensing datasets, GIS mapping for AFOLU projects"
-      ],
-      education: [
-        "B.Tech / B.E. (Environmental / Energy / Mechanical / Chemical / Forestry)",
-        "Master’s in Climate Change / Environmental Management",
-        "PhD preferred",
-        "ISO 14064 certification preferred"
-      ]
-    }, { title: "Business Development Executive", location: "Bangalore", type: "Hybrid", department: "Business Development", description: "Identify opportunities, pitch services, and build strong business partnerships in the Bangalore region.", requirements: ["Previous BD or sales experience", "Good presentation & communication skills", "Hybrid working flexibility", "Understanding of sustainability sector (preferred)"], }, { title: "Business Development Manager", location: "Indore", type: "Onsite", department: "Business Development", description: "Lead the BD team, develop strategies, manage key accounts, and ensure overall business growth.", requirements: ["3+ years in BD or sales leadership", "Team management & strategic planning skills", "Strong relationship-building ability", "Onsite availability in Indore"], }, { title: "Environmental Research and Development Specialist", location: "Indore", type: "Onsite", department: "Research & Development", description: "Lead environmental research initiatives, develop innovative sustainability solutions, and drive R&D projects for climate impact.", requirements: ["Master's degree in Environmental Science or related field", "Research experience in sustainability or climate tech", "Strong analytical and problem-solving skills", "Experience with environmental impact assessment"], }, { title: "Internship Opportunities", location: "Indore", type: "Onsite", department: "All Departments", description: "Exciting internship opportunities across Sustainability, Sales, Management, and other departments. Perfect for students and recent graduates passionate about making a difference.", requirements: ["Currently pursuing or recently completed relevant degree", "Strong eagerness to learn and grow", "Good communication skills", "Passion for sustainability and environmental impact"], }, { title: "Full Stack Developer", location: "Indore", type: "Onsite", department: "Technology", description: "Build and maintain innovative web applications for our sustainability platform. Work with modern technologies to create impactful digital solutions.", requirements: ["3+ years experience with React, Node.js, and modern frameworks", "Strong knowledge of databases (SQL/NoSQL)", "Experience with cloud platforms (AWS/Azure)", "Understanding of RESTful APIs and microservices"], },
+    { title: "Business Development Executive", location: "Bangalore", type: "Hybrid", department: "Business Development", description: "Identify opportunities, pitch services, and build strong business partnerships in the Bangalore region.", requirements: ["Previous BD or sales experience", "Good presentation & communication skills", "Hybrid working flexibility", "Understanding of sustainability sector (preferred)"], },
+    { title: "Business Development Manager", location: "Indore", type: "Onsite", department: "Business Development", description: "Lead the BD team, develop strategies, manage key accounts, and ensure overall business growth.", requirements: ["3+ years in BD or sales leadership", "Team management & strategic planning skills", "Strong relationship-building ability", "Onsite availability in Indore"], },
+    { title: "Internship Opportunities", location: "Indore", type: "Onsite", department: "All Departments", description: "Exciting internship opportunities across Sustainability, Sales, Management, and other departments. Perfect for students and recent graduates passionate about making a difference.", requirements: ["Currently pursuing or recently completed relevant degree", "Strong eagerness to learn and grow", "Good communication skills", "Passion for sustainability and environmental impact"], },
     // Add more jobs as needed
   ];
 
@@ -281,7 +256,7 @@ export default function ClimetoCareers() {
         "service_a2z5zy2", // replace with your EmailJS service ID
         "template_kgarj8w", // replace with your EmailJS template ID
         templateParams,
-        "4eY9uaRaYhI4OzB-_" // replace with your EmailJS public key
+        "WYA3fN46e6Pci9Ozo" // replace with your EmailJS public key
       );
 
       alert("Application sent successfully! We'll get back to you soon.");
