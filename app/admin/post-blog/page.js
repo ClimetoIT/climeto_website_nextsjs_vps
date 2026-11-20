@@ -193,6 +193,49 @@ export default function PostBlogAdmin() {
         setNewFaq({ question: "", answer: "" });
     };
 
+    // Compress image to stay under Vercel's 4.5MB limit
+    const compressImage = (file, maxSizeMB = 3) => {
+        return new Promise((resolve) => {
+            // If file is already small enough, skip compression
+            if (file.size <= maxSizeMB * 1024 * 1024) {
+                resolve(file);
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    const canvas = document.createElement("canvas");
+                    // Scale down if image is very large
+                    let width = img.width;
+                    let height = img.height;
+                    const maxDimension = 1920;
+                    if (width > maxDimension || height > maxDimension) {
+                        const ratio = Math.min(maxDimension / width, maxDimension / height);
+                        width = Math.round(width * ratio);
+                        height = Math.round(height * ratio);
+                    }
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext("2d");
+                    ctx.drawImage(img, 0, 0, width, height);
+                    canvas.toBlob(
+                        (blob) => {
+                            const compressedFile = new File([blob], file.name, { type: "image/jpeg" });
+                            console.log(`Compressed: ${(file.size / 1024 / 1024).toFixed(2)}MB → ${(compressedFile.size / 1024 / 1024).toFixed(2)}MB`);
+                            resolve(compressedFile);
+                        },
+                        "image/jpeg",
+                        0.8 // quality (0.8 = 80%)
+                    );
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         
@@ -214,9 +257,10 @@ export default function PostBlogAdmin() {
 
             // 1. Only upload image if a new file is selected
             if (file) {
-                setStatus("Uploading New Image to Cloudinary...");
+                setStatus("Compressing & Uploading Image...");
+                const compressedFile = await compressImage(file);
                 const imageFormData = new FormData();
-                imageFormData.append("file", file);
+                imageFormData.append("file", compressedFile);
 
                 const uploadRes = await fetch("/api/blogs/uploads", {
                     method: "POST",

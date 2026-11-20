@@ -5,11 +5,9 @@
 
 html, body, #__next {
   width: 100%;
-  overflow-x: hidden;
-  position: relative;
-    width: 100%;
   max-width: 100%;
-  overflow-x: hidden !important;
+  position: relative;
+  overflow-x: clip !important;
 }
 
 

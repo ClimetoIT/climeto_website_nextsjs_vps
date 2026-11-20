@@ -2,6 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { Phone } from "lucide-react";
+
+const CONSULTANT_PHONE = "+919039946410";
+const DISPLAY_PHONE = "+91-9039946410";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -27,16 +31,19 @@ const Navbar = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
+  // Prevent background scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflowY = 'hidden';
+      document.body.style.overflowY = 'hidden';
     } else {
-      document.body.style.overflow = '';
+      document.documentElement.style.overflowY = '';
+      document.body.style.overflowY = '';
     }
-    
+
     return () => {
-      document.body.style.overflow = '';
+      document.documentElement.style.overflowY = '';
+      document.body.style.overflowY = '';
     };
   }, [isMobileMenuOpen]);
 
@@ -63,13 +70,13 @@ const Navbar = () => {
         }
 
         .nav-container {
-          max-width: 1200px;
+          max-width: 1360px;
           margin: 0 auto;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 0 24px;
-          gap: 40px;
+          padding: 0 20px;
+          gap: 14px;
         }
 
         .hamburger {
@@ -79,29 +86,173 @@ const Navbar = () => {
           width: 28px;
           height: 22px;
           cursor: pointer;
-          margin-left: auto;
           z-index: 1001;
+          flex-shrink: 0;
         }
 
         .nav-links {
           display: flex;
           align-items: center;
-          gap: 24px;
-          margin-left: 20px;
+          gap: 8px;
+          margin-left: 6px;
+        }
+
+        .call-consultant-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          padding: 7px 14px 7px 10px;
+          border-radius: 9999px;
+          background: linear-gradient(135deg, #36a852 0%, #15803d 100%);
+          color: #ffffff;
+          text-decoration: none;
+          white-space: nowrap;
+          box-shadow: 0 4px 14px rgba(54, 168, 82, 0.38);
+          transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+          flex-shrink: 0;
+        }
+
+        .call-consultant-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 22px rgba(54, 168, 82, 0.55);
+          filter: brightness(1.06);
+          color: #ffffff;
+        }
+
+        .call-consultant-btn:active {
+          transform: translateY(0) scale(0.98);
+        }
+
+        .call-consultant-icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.22);
+          flex-shrink: 0;
+          animation: headerCallPulse 2s infinite;
+        }
+
+        .call-consultant-content {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          line-height: 1.15;
+        }
+
+        .call-consultant-label {
+          font-size: 10.5px;
+          font-weight: 600;
+          color: rgba(255, 255, 255, 0.92);
+          letter-spacing: 0.2px;
+        }
+
+        .call-consultant-number {
+          font-size: 14px;
+          font-weight: 800;
+          color: #ffffff;
+          letter-spacing: 0.4px;
+        }
+
+        @keyframes headerCallPulse {
+          0% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.65);
+          }
+          70% {
+            box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+          }
+        }
+
+        @media (max-width: 1180px) {
+          .nav-container {
+            padding: 0 14px;
+            gap: 8px;
+          }
+
+          .nav-links {
+            gap: 4px;
+            margin-left: 0;
+          }
+
+          .call-consultant-btn {
+            padding: 6px 12px 6px 8px;
+            gap: 8px;
+          }
+
+          .call-consultant-label {
+            font-size: 10px;
+          }
+
+          .call-consultant-number {
+            font-size: 13px;
+          }
         }
 
         @media (max-width: 768px) {
+          .nav-container {
+            padding: 0 14px;
+            gap: 8px;
+            flex-wrap: wrap;
+          }
+
+          .nav-logo {
+            order: 1;
+          }
+
+          .nav-logo img {
+            height: 44px !important;
+          }
+
           .hamburger {
             display: flex;
+            order: 2;
+            margin-left: auto;
+            width: 26px;
+            height: 20px;
+          }
+
+          .call-consultant-btn {
+            order: 3;
+            width: 100%;
+            justify-content: center;
+            padding: 7px 12px;
+            gap: 8px;
+            border-radius: 10px;
+          }
+
+          .call-consultant-icon {
+            width: 24px;
+            height: 24px;
+          }
+
+          .call-consultant-content {
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+          }
+
+          .call-consultant-label {
+            font-size: 11.5px;
+          }
+
+          .call-consultant-number {
+            font-size: 12.5px;
           }
 
           .nav-links {
             position: fixed;
-            top: 94px;
+            top: 112px;
             left: 0;
             right: 0;
             width: 100vw;
-            height: calc(100vh - 94px);
+            height: calc(100vh - 112px);
             background-color: white;
             flex-direction: column;
             align-items: flex-start;
@@ -113,6 +264,7 @@ const Navbar = () => {
             transition: transform 0.3s ease;
             overflow-y: auto;
             overflow-x: hidden;
+            overscroll-behavior: contain;
             box-shadow: ${isMobileMenuOpen ? '0 4px 6px rgba(0,0,0,0.1)' : 'none'};
             z-index: 1000;
           }
@@ -180,30 +332,6 @@ const Navbar = () => {
                 objectFit: 'contain'
               }}
             />
-          </div>
-
-          <div onClick={toggleMobileMenu} className="hamburger">
-            <div style={{
-              height: '3px',
-              width: '100%',
-              backgroundColor: '#1b355e',
-              transition: 'all 0.3s ease',
-              transform: isMobileMenuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none'
-            }} />
-            <div style={{
-              height: '3px',
-              width: '100%',
-              backgroundColor: '#1b355e',
-              transition: 'all 0.3s ease',
-              opacity: isMobileMenuOpen ? 0 : 1
-            }} />
-            <div style={{
-              height: '3px',
-              width: '100%',
-              backgroundColor: '#1b355e',
-              transition: 'all 0.3s ease',
-              transform: isMobileMenuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none'
-            }} />
           </div>
 
           <nav className="nav-links">
@@ -667,6 +795,45 @@ const Navbar = () => {
               Career
             </Link>
           </nav>
+
+          <a
+            href={`tel:${CONSULTANT_PHONE}`}
+            className="call-consultant-btn"
+            aria-label={`Book Your Consultation Call: ${DISPLAY_PHONE}`}
+            title={`Book Your Consultation Call: ${DISPLAY_PHONE}`}
+          >
+            <span className="call-consultant-icon">
+              <Phone size={15} strokeWidth={2.4} />
+            </span>
+            <span className="call-consultant-content">
+              <span className="call-consultant-label">Book Your Consultation Call:</span>
+              <span className="call-consultant-number">9039946410</span>
+            </span>
+          </a>
+
+          <div onClick={toggleMobileMenu} className="hamburger">
+            <div style={{
+              height: '3px',
+              width: '100%',
+              backgroundColor: '#1b355e',
+              transition: 'all 0.3s ease',
+              transform: isMobileMenuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none'
+            }} />
+            <div style={{
+              height: '3px',
+              width: '100%',
+              backgroundColor: '#1b355e',
+              transition: 'all 0.3s ease',
+              opacity: isMobileMenuOpen ? 0 : 1
+            }} />
+            <div style={{
+              height: '3px',
+              width: '100%',
+              backgroundColor: '#1b355e',
+              transition: 'all 0.3s ease',
+              transform: isMobileMenuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none'
+            }} />
+          </div>
         </div>
       </header>
     </>

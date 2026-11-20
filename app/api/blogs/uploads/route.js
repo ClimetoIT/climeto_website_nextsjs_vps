@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 import { v2 as cloudinary } from "cloudinary";
 
+// Route segment config for App Router
+export const dynamic = "force-dynamic";
+export const maxDuration = 60; // Allow up to 60 seconds for uploads
+
 // Configure Cloudinary
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
