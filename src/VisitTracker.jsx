@@ -14,6 +14,13 @@ function sessionId() {
   return id;
 }
 
+function rememberAdClick() {
+  const oppref = new URLSearchParams(window.location.search).get("oppref");
+  if (!oppref) return;
+  const secure = window.location.protocol === "https:" ? "; Secure" : "";
+  document.cookie = `__oppref=${encodeURIComponent(oppref)}; Max-Age=2592000; Path=/; SameSite=Lax${secure}`;
+}
+
 function send(data) {
   const body = JSON.stringify(data);
   try {
@@ -46,6 +53,7 @@ export default function VisitTracker() {
     const startedAt = Date.now();
     let flushedUntil = startedAt;
 
+    rememberAdClick();
     send({ sessionId: id, path: pathname, durationMs: 0, pageView: true });
 
     const flush = () => {
