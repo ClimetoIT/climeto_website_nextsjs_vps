@@ -814,7 +814,7 @@ const Navbar = () => {
               <Phone size={15} strokeWidth={2.4} />
             </span>
             <span className="call-consultant-content">
-              <span className="call-consultant-label">Book Your Consultation Call:</span>
+              <span className="call-consultant-label">Book Your Consultation Call</span>
               <span className="call-consultant-number">9039946410</span>
             </span>
           </button>

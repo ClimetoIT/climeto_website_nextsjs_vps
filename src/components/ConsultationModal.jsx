@@ -1,12 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Phone, X } from "lucide-react";
+import { CheckCircle, X } from "lucide-react";
 
 export default function ConsultationModal({
   isOpen,
   onClose,
-  phoneNumber = "+919039946410",
   displayPhone = "9039946410",
 }) {
   const [formData, setFormData] = useState({
@@ -17,9 +16,14 @@ export default function ConsultationModal({
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen) {
+      setSubmitted(false);
+      setError("");
+      return;
+    }
 
     const handleKeyDown = (e) => {
       if (e.key === "Escape") onClose();
@@ -79,10 +83,11 @@ export default function ConsultationModal({
         phone: "",
         message: "",
       });
-      onClose();
-
-      // Navigate user to phone dialer right after saving to DB
-      window.location.href = `tel:${phoneNumber}`;
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        onClose();
+      }, 2200);
     } catch (err) {
       setError(err.message || "Something went wrong. Please try again.");
     } finally {
@@ -124,6 +129,12 @@ export default function ConsultationModal({
 
         <form onSubmit={handleSubmit} className="consult-modal-form">
           {error && <div className="consult-modal-error">{error}</div>}
+          {submitted && (
+            <div className="consult-modal-success">
+              <CheckCircle size={18} />
+              <span>Submitted successfully! Our consultant will connect with you shortly.</span>
+            </div>
+          )}
 
           <div className="consult-field">
             <label htmlFor="consult-fullName">Full Name *</label>
@@ -181,18 +192,15 @@ export default function ConsultationModal({
           <button
             type="submit"
             className="consult-submit-btn"
-            disabled={isSubmitting}
+            disabled={isSubmitting || submitted}
           >
             {isSubmitting ? (
               <>
                 <span className="consult-spinner" />
-                Saving &amp; Connecting...
+                Submitting...
               </>
             ) : (
-              <>
-                <Phone size={18} strokeWidth={2.4} />
-                Submit &amp; Call {displayPhone}
-              </>
+              "Submit"
             )}
           </button>
         </form>
@@ -294,6 +302,19 @@ export default function ConsultationModal({
           font-weight: 600;
           padding: 10px 14px;
           border-radius: 10px;
+        }
+
+        .consult-modal-success {
+          background: #f0fdf4;
+          border: 1px solid #bbf7d0;
+          color: #166534;
+          font-size: 13.5px;
+          font-weight: 600;
+          padding: 10px 14px;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
         }
 
         .consult-field-grid {

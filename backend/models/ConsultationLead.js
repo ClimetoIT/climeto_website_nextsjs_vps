@@ -7,6 +7,7 @@ const consultationLeadSchema = new Schema(
     phone: { type: String, trim: true, default: "" },
     message: { type: String, required: true, trim: true },
     sourcePage: { type: String, trim: true, default: "/" },
+    ipAddress: { type: String, trim: true, default: "unknown" },
   },
   { timestamps: true }
 );

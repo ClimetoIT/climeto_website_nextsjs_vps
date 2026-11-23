@@ -26,19 +26,41 @@ function cookieValue(request, name) {
 }
 
 export async function sendPageViewed({ request, path }) {
+  return sendOpenAIAdEvent({
+    request,
+    path,
+    type: "page_viewed",
+  });
+}
+
+export async function sendConsultationConversion({ request, path = "/consultation-conversion" }) {
+  const eventType = process.env.OPENAI_ADS_CONVERSION_EVENT_TYPE || "page_viewed";
+  return sendOpenAIAdEvent({
+    request,
+    path,
+    type: eventType,
+  });
+}
+
+async function sendOpenAIAdEvent({ request, path = "/", type = "page_viewed" }) {
   const apiKey = process.env.OPENAI_ADS_API_KEY || "";
   const pixelId = process.env.OPENAI_ADS_PIXEL_ID || "";
   if (!apiKey || !pixelId) return { skipped: true };
 
-  const host = (request.headers.get("x-forwarded-host") || request.headers.get("host") || "climeto.com")
+  const rawHost = (request.headers.get("x-forwarded-host") || request.headers.get("host") || "climeto.com")
     .split(",")[0]
     .trim();
-  const proto = (request.headers.get("x-forwarded-proto") || "https").split(",")[0].trim();
-  const sourceUrl = `${proto}://${host}${path}`;
+  const isLocalHost = /^(localhost|127\.0\.0\.1)(:\d+)?$/i.test(rawHost);
+  const host = isLocalHost ? "climeto.com" : rawHost;
+  const proto = isLocalHost
+    ? "https"
+    : (request.headers.get("x-forwarded-proto") || "https").split(",")[0].trim();
+  const normalizedPath = path && path.startsWith("/") ? path : `/${path || ""}`;
+  const sourceUrl = `${proto}://${host}${normalizedPath}`;
 
   const event = {
     id: randomUUID(),
-    type: "page_viewed",
+    type,
     timestamp_ms: Date.now(),
     source_url: sourceUrl,
     action_source: "web",
@@ -76,7 +98,7 @@ export async function sendPageViewed({ request, path }) {
     throw new Error(`OpenAI ads ${response.status}: ${detail}`);
   }
 
-  return { ok: true };
+  return { ok: true, eventId: event.id, sourceUrl };
 }
 
 function clientIpFrom(request) {
