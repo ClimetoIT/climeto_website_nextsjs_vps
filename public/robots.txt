@@ -2,6 +2,38 @@
 User-agent: *
 Allow: /
 
+# Googlebot
+User-agent: Googlebot
+Allow: /
+
+# Google-Extended
+User-agent: Google-Extended
+Allow: /
+
+# OAI-SearchBot
+User-agent: OAI-SearchBot
+Allow: /
+
+# GPTBot
+User-agent: GPTBot
+Allow: /
+
+# ChatGPT-User
+User-agent: ChatGPT-User
+Allow: /
+
+# ClaudeBot
+User-agent: ClaudeBot
+Allow: /
+
+# Claude-SearchBot
+User-agent: Claude-SearchBot
+Allow: /
+
+# PerplexityBot
+User-agent: PerplexityBot
+Allow: /
+
 # Host
 Host: https://climeto.com
 

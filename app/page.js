@@ -1,4 +1,6 @@
 import Home from "../src/Home/home";
+import JsonLd from "../src/components/JsonLd";
+import { HOME_FAQ_SCHEMA } from "../src/lib/schema";
 
 export const metadata = {
   title: "Climeto Sustainable Services",
@@ -9,7 +11,12 @@ export const metadata = {
 };
 
 export default function HomePage() {
-  return <Home />;
+  return (
+    <>
+      <JsonLd data={HOME_FAQ_SCHEMA} />
+      <Home />
+    </>
+  );
 }
 
 

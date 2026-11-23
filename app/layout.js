@@ -2,6 +2,8 @@ import "../src/index.css";
 import Navbar from "../src/Navbar";
 import Footer from "../src/footer/footer";
 import ScrollToTop from "../src/ScrollToTop";
+import JsonLd from "../src/components/JsonLd";
+import { ORGANIZATION_SCHEMA, WEBSITE_SCHEMA } from "../src/lib/schema";
 import VisitTracker from "../src/VisitTracker";
 
 export const metadata = {
@@ -16,6 +18,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <JsonLd data={ORGANIZATION_SCHEMA} />
+        <JsonLd data={WEBSITE_SCHEMA} />
+      </head>
       <body>
         <VisitTracker />
         <Navbar />

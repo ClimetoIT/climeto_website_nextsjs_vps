@@ -3,12 +3,14 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Phone } from "lucide-react";
+import ConsultationModal from "./components/ConsultationModal";
 
 const CONSULTANT_PHONE = "+919039946410";
 const DISPLAY_PHONE = "+91-9039946410";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isConsultModalOpen, setIsConsultModalOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isCreditsOpen, setIsCreditsOpen] = useState(false);
   const [isEPROpen, setIsEPROpen] = useState(false);
@@ -102,11 +104,13 @@ const Navbar = () => {
           align-items: center;
           gap: 10px;
           padding: 7px 14px 7px 10px;
+          border: none;
           border-radius: 9999px;
           background: linear-gradient(135deg, #36a852 0%, #15803d 100%);
           color: #ffffff;
           text-decoration: none;
           white-space: nowrap;
+          cursor: pointer;
           box-shadow: 0 4px 14px rgba(54, 168, 82, 0.38);
           transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
           flex-shrink: 0;
@@ -796,8 +800,12 @@ const Navbar = () => {
             </Link>
           </nav>
 
-          <a
-            href={`tel:${CONSULTANT_PHONE}`}
+          <button
+            type="button"
+            onClick={() => {
+              closeMobileMenu();
+              setIsConsultModalOpen(true);
+            }}
             className="call-consultant-btn"
             aria-label={`Book Your Consultation Call: ${DISPLAY_PHONE}`}
             title={`Book Your Consultation Call: ${DISPLAY_PHONE}`}
@@ -809,7 +817,7 @@ const Navbar = () => {
               <span className="call-consultant-label">Book Your Consultation Call:</span>
               <span className="call-consultant-number">9039946410</span>
             </span>
-          </a>
+          </button>
 
           <div onClick={toggleMobileMenu} className="hamburger">
             <div style={{
@@ -836,6 +844,13 @@ const Navbar = () => {
           </div>
         </div>
       </header>
+
+      <ConsultationModal
+        isOpen={isConsultModalOpen}
+        onClose={() => setIsConsultModalOpen(false)}
+        phoneNumber={CONSULTANT_PHONE}
+        displayPhone="9039946410"
+      />
     </>
   );
 };
