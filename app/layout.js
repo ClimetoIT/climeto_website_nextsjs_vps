@@ -4,6 +4,7 @@ import Footer from "../src/footer/footer";
 import ScrollToTop from "../src/ScrollToTop";
 import JsonLd from "../src/components/JsonLd";
 import { ORGANIZATION_SCHEMA, WEBSITE_SCHEMA } from "../src/lib/schema";
+import VisitTracker from "../src/VisitTracker";
 
 export const metadata = {
   metadataBase: new URL("https://climeto.com"),
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
         <JsonLd data={WEBSITE_SCHEMA} />
       </head>
       <body>
+        <VisitTracker />
         <Navbar />
         <ScrollToTop />
         {children}
