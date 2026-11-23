@@ -1,6 +1,7 @@
 import { timingSafeEqual } from "crypto";
 import { NextResponse } from "next/server";
 import connectMongoDB from "../../../backend/db";
+import { sendPageViewed } from "../../../backend/openaiAds";
 import VisitSession from "../../../backend/models/VisitSession";
 
 const MAX_DURATION_MS = 2 * 60 * 60 * 1000;
@@ -58,6 +59,14 @@ export async function POST(request) {
     }
     if (!path.startsWith("/") || path.length > 300 || path.startsWith("/api")) {
       return NextResponse.json({ message: "Invalid path" }, { status: 400 });
+    }
+
+    if (pageView) {
+      try {
+        await sendPageViewed({ request, path });
+      } catch (error) {
+        console.error("OpenAI ads page_viewed failed:", error.message);
+      }
     }
 
     await connectMongoDB();
