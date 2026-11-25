@@ -292,7 +292,9 @@ const BlogPage = () => {
 
 
 
-      <style>{`
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
         
         @keyframes meshMove {
@@ -343,7 +345,7 @@ const BlogPage = () => {
           box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
           transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
           cursor: pointer;
-          height: '100%';
+          height: 100%;
           display: flex;
           flex-direction: column;
         }
@@ -366,7 +368,9 @@ const BlogPage = () => {
         .blog-card:hover .card-image {
           transform: scale(1.1);
         }
-      `}</style>
+      `,
+        }}
+      />
 
       {/* Hero Section */}
       <section className="hero-container">
