@@ -2,6 +2,7 @@ module.exports = {
   siteUrl: 'https://climeto.com',
   generateRobotsTxt: true,
   sitemapSize: 5000,
+  exclude: ['/dashboard', '/dashboard/*'],
   robotsTxtOptions: {
     policies: [
       { userAgent: '*', allow: '/' },
