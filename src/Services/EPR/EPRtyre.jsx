@@ -80,7 +80,7 @@ export default function EPRTirePage() {
                 We Handle <span className="text-emerald-200">EVERYTHING</span> For You!
               </h1>
               <p className="text-xl md:text-2xl mb-8 text-emerald-50">
-                Comprehensive EPR Tire Management Solutions
+                Comprehensive EPR Tyre Management Solutions
               </p>
            
             </div>
@@ -95,7 +95,7 @@ export default function EPRTirePage() {
                 />
                 <div className="mt-4 flex items-center justify-center gap-2 text-emerald-100">
                   <Leaf className="w-5 h-5" />
-                  <span className="text-sm font-medium">Sustainable Tire Management</span>
+                  <span className="text-sm font-medium">Sustainable Tyre Management</span>
                 </div>
               </div>
             </div>
@@ -103,24 +103,24 @@ export default function EPRTirePage() {
         </div>
       </div>
 
-      {/* What is EPR Tire Section */}
+      {/* What is EPR Tyre Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
           <h2 className="text-4xl font-bold text-slate-800 mb-6 text-center">
-            What is EPR Tire?
+            What is EPR Tyre?
           </h2>
           <div className="prose prose-lg max-w-none text-slate-600 leading-relaxed">
             <p className="mb-4">
-              Extended Producer Responsibility (EPR) for tires necessitates manufacturers to actively manage the environmental impact across the entire product life cycle, encompassing crucial stages such as collection, recycling, and proper disposal.
+              Extended Producer Responsibility (EPR) for tyres necessitates manufacturers to actively manage the environmental impact across the entire product life cycle, encompassing crucial stages such as collection, recycling, and proper disposal.
             </p>
             <p className="mb-4">
-              Tire manufacturers are mandated to register on the Central Pollution Control Board's (CPCB) portal, diligently meeting specified waste targets. Non-compliance with these regulations subjects producers to environmental compensation determined by the CPCB.
+              Tyre manufacturers are mandated to register on the Central Pollution Control Board's (CPCB) portal, diligently meeting specified waste targets. Non-compliance with these regulations subjects producers to environmental compensation determined by the CPCB.
             </p>
             <p className="mb-4">
-              Entities involved in tire production or distribution must complete the Registration process on the CPCB portal, regularly filing comprehensive annual returns detailing their Waste Tyre obligations.
+              Entities involved in tyre production or distribution must complete the Registration process on the CPCB portal, regularly filing comprehensive annual returns detailing their Waste Tyre obligations.
             </p>
             <p>
-              The implementation of EPR significantly mitigates the environmental footprint by promoting the reuse and recycling of tires, thereby curbing the demand for new raw materials and minimizing adverse environmental impacts. Producers, including manufacturers, sellers, and importers, bear the responsibility of ensuring environmentally sound waste management practices for tires.
+              The implementation of EPR significantly mitigates the environmental footprint by promoting the reuse and recycling of tyres, thereby curbing the demand for new raw materials and minimizing adverse environmental impacts. Producers, including manufacturers, sellers, and importers, bear the responsibility of ensuring environmentally sound waste management practices for tyres.
             </p>
           </div>
         </div>
@@ -139,7 +139,7 @@ export default function EPRTirePage() {
               </div>
               <h3 className="text-2xl font-bold text-slate-800 mb-4">Reduced Waste</h3>
               <p className="text-slate-600 leading-relaxed">
-                EPR registration can lead to improved environmental performance and significantly reduced tire waste through better management practices.
+                EPR registration can lead to improved environmental performance and significantly reduced tyre waste through better management practices.
               </p>
             </div>
 

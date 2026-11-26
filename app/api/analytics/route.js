@@ -3,11 +3,14 @@ import { NextResponse } from "next/server";
 import connectMongoDB from "../../../backend/db";
 import { sendPageViewed } from "../../../backend/openaiAds";
 import VisitSession from "../../../backend/models/VisitSession";
+import { recordVisitSession } from "../../../backend/visitSession";
 
 const MAX_DURATION_MS = 2 * 60 * 60 * 1000;
-const MAX_PAGES = 100;
 
 function clientIp(request) {
+  const cfIp = request.headers.get("cf-connecting-ip");
+  if (cfIp) return cfIp.trim().slice(0, 64);
+
   const forwarded = request.headers.get("x-forwarded-for");
   if (forwarded) {
     const first = forwarded.split(",")[0].trim();
@@ -72,37 +75,8 @@ export async function POST(request) {
     await connectMongoDB();
 
     const ip = clientIp(request);
-    let session = await VisitSession.findOne({ sessionId });
-    if (!session) {
-      session = new VisitSession({
-        sessionId,
-        ip,
-        pages: [],
-        pageCount: 0,
-        totalDurationMs: 0,
-        firstSeenAt: new Date(),
-      });
-    }
+    await recordVisitSession({ sessionId, ip, path, durationMs, pageView });
 
-    session.ip = ip;
-    session.lastSeenAt = new Date();
-    session.totalDurationMs += durationMs;
-
-    let page = session.pages.find((item) => item.path === path);
-    if (!page) {
-      if (session.pages.length >= MAX_PAGES) {
-        return NextResponse.json({ ok: true, capped: true });
-      }
-      session.pages.push({ path, views: 0, durationMs: 0 });
-      page = session.pages[session.pages.length - 1];
-    }
-    page.durationMs += durationMs;
-    if (pageView) {
-      page.views += 1;
-      session.pageCount += 1;
-    }
-
-    await session.save();
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("POST /api/analytics error:", error);

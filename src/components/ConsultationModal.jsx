@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { CheckCircle, X } from "lucide-react";
+import { getVisitSessionId } from "../VisitTracker";
 
 export default function ConsultationModal({
   isOpen,
@@ -68,6 +69,7 @@ export default function ConsultationModal({
         body: JSON.stringify({
           ...formData,
           sourcePage: typeof window !== "undefined" ? window.location.pathname : "/",
+          sessionId: typeof window !== "undefined" ? getVisitSessionId() : "",
         }),
       });
 

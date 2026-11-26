@@ -1,5 +1,7 @@
+import { randomUUID } from "crypto";
 import connectMongoDB from "../../../backend/db";
 import ConsultationLead from "../../../backend/models/ConsultationLead";
+import { recordVisitSession } from "../../../backend/visitSession";
 import { sendConsultationConversion } from "../../../backend/openaiAds";
 import { NextResponse } from "next/server";
 
@@ -22,7 +24,7 @@ function getClientIp(request) {
 
 export async function POST(request) {
   try {
-    const { fullName, email, phone, message, sourcePage } = await request.json();
+    const { fullName, email, phone, message, sourcePage, sessionId } = await request.json();
 
     if (!fullName?.trim() || !email?.trim() || !message?.trim()) {
       return NextResponse.json(
@@ -34,15 +36,36 @@ export async function POST(request) {
     await connectMongoDB();
 
     const ipAddress = getClientIp(request);
+    const cleanPath =
+      typeof sourcePage === "string" && sourcePage.startsWith("/") && !sourcePage.startsWith("/api")
+        ? sourcePage.slice(0, 300)
+        : "/";
 
     const lead = await ConsultationLead.create({
       fullName: fullName.trim(),
       email: email.trim(),
       phone: phone ? phone.trim() : "",
       message: message.trim(),
-      sourcePage: sourcePage || "/",
+      sourcePage: cleanPath,
       ipAddress,
     });
+
+    // Ensure the visitor's session is always captured in visitsessions even if client tracking was blocked
+    try {
+      const validSessionId =
+        typeof sessionId === "string" && /^[0-9a-f-]{36}$/i.test(sessionId)
+          ? sessionId
+          : randomUUID();
+      await recordVisitSession({
+        sessionId: validSessionId,
+        ip: ipAddress,
+        path: cleanPath,
+        durationMs: 0,
+        pageView: true,
+      });
+    } catch (sessionError) {
+      console.error("Failed to sync VisitSession on consultation submit:", sessionError.message);
+    }
 
     let conversionTracked = false;
     try {

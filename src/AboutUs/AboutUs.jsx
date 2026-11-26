@@ -113,21 +113,29 @@ export default function ClimetoAboutPage() {
       <div className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-green-600 via-teal-600 to-blue-600"></div>
         <div className="absolute inset-0 opacity-20">
-          {[...Array(15)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full animate-float"
-              style={{
-                width: `${Math.random() * 400 + 100}px`,
-                height: `${Math.random() * 400 + 100}px`,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                background: `radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${Math.random() * 15 + 10}s`
-              }}
-            ></div>
-          ))}
+          {[...Array(15)].map((_, i) => {
+            const width = ((i * 83 + 47) % 380) + 110;
+            const height = ((i * 97 + 29) % 380) + 110;
+            const left = (i * 23 + 7) % 95;
+            const top = (i * 31 + 11) % 95;
+            const delay = ((i * 7) % 50) / 10;
+            const duration = ((i * 11) % 15) + 10;
+            return (
+              <div
+                key={i}
+                className="absolute rounded-full animate-float"
+                style={{
+                  width: `${width}px`,
+                  height: `${height}px`,
+                  left: `${left}%`,
+                  top: `${top}%`,
+                  background: `radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)`,
+                  animationDelay: `${delay}s`,
+                  animationDuration: `${duration}s`
+                }}
+              ></div>
+            );
+          })}
         </div>
         
         <div className="relative z-10 text-center text-white px-6 max-w-6xl">
